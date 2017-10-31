@@ -6,8 +6,14 @@ exports.up = function(knex, Promise) {
     table.string('last_name');
     table.string('email');
     table.string('password');
-    table.string('cohort');
+    table.string('cohort')
+      .notNullable()
+      .defaultTo('');
     table.string('campus');
+    table.string('type');
+    table.string('role')
+      .notNullable()
+      .defaultTo('user');
     table.timestamps(true, true);
   })
 };
