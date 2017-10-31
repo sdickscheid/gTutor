@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+<nav>
+  <div id="nav-bar" class="nav-wrapper">
+      <div id="nav-img"class="brand-logo center"><img src=" https://s3-us-west-2.amazonaws.com/galvanize.com-dev/galvanize-logo.svg" alt=""></div>
+     <h1 id="nav-heading"class="brand-logo center">gTutor</h1><br>
+
+
+  </div>
+</nav>
+
+  <div class="container">
+    <div class="row">
+      <div id="body-heading" class=""><h2>Code Assistance Request Queue</h2></div>
+      <div id="bodyCampus" class="white-text"><h4>(City) Campus</h4></div>
+
+      <div class="row">
+          <div class="col s6">
+            <ul class="tabs">
+              <li class="tab col s6"><a href="#test1" class="orange-text">All Requests</a></li>
+              <li class="tab col s6"><a href="#test2" class="orange-text">Your Requests</a></li>
+            </ul>
+          </div>
+          <div id="test1" class="col s12">
+            <div id="scrollOne" style="overflow-y: scroll; height:200px;">
+                <ul class="collapsible" data-collapsible="accordion">
+                  <li>
+                    <div class="collapsible-header">
+                    Hassan
+                    </div>
+                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                  </li>
+                  <li>
+                    <div class="collapsible-header">
+                    Scott
+                    </div>
+                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                  </li>
+                  <li>
+                    <div class="collapsible-header">
+                    Barbara
+                    </div>
+                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                  </li>
+                </ul>
+            </div>
+
+          </div>
+          <div id="test2" class="col s12">
+            <div id="scrollOne" style="overflow-y: scroll; height:200px;">
+              <ul class="collapsible" data-collapsible="accordion">
+                <li>
+                  <div class="collapsible-header">First</div>
+                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+                <li>
+                  <div class="collapsible-header">Second</div>
+                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+                <li>
+                  <div class="collapsible-header">Third</div>
+                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+
+    </div>
+  </div>
+
+  <footer class="page-footer">
+         <div class="container">
+           <div class="row">
+             <div class="center-align">
+               <h5 class="white-text"> a <span style="color:#e9933e;">galvanize</span> student project</h5>
+             </div>
+           </div>
+         </div>
+         <div class="footer-copyright">
+           <div class="container">
+           © 2017 Copyright Text
+           <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+           </div>
+         </div>
+       </footer>
+
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="crossorigin="anonymous"></script>
+     <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+  $('select').material_select();
+    });
+    $(document).ready(function(){
+     $('.collapsible').collapsible();
+   });
+  </script>
+
+  <style media="screen">
+    body{
+      background-color:#34525f;
+      display: sticky;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    main {
+    flex: 1 0 auto;
+    }
+
+
+    #nav-bar{
+      background-color:#143b4b;
+      padding-bottom: 6%;
+    }
+    #nav-heading{
+      color:#e9933e;
+      margin-top: 3%;
+    }
+    #body-heading{
+      color:#e9933e;
+      margin-bottom: 5%;
+    }
+
+    #learn{
+      margin-bottom: 5%;
+    }
+
+    #box{
+      margin-left: 30%;
+    }
+
+    #boxHead{
+      color:#e9933e;
+    }
+
+    #btnOne{
+      margin-left: 230%;
+      background-color: #424242;
+    }
+
+    #btnOne:hover {
+    background-color: #4ab5cd;
+    }
+    .page-footer{
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 1rem;
+      background-color:#2e4a56;
+    }
+
+  </style>
+
+  </body>
+
+</html>

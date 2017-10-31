@@ -12,7 +12,7 @@ module.exports = {
       messageToPage = req.session.message;
       req.session.message = "";
     }
-    res.render('b_index', {message: messageToPage});
+    res.render('h_loginPage', {message: messageToPage});
   },
 
   login: function(req, res) {
@@ -81,6 +81,10 @@ module.exports = {
       .catch((err) => {
         console.log(err);
       })
+  },
+
+  request: function(req,res){
+    res.render("requestQ")
   },
 
   dashboard: function(req, res){

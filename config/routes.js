@@ -13,6 +13,8 @@ module.exports = function(app){
 
   app.post('/gTutor/register', users.register);
 
+  app.get('/gTutor/request', users.request);
+
   app.use(requiresLoggedUser);
 
   // app.get('/gTutor/:id', users.dashboard);
@@ -37,7 +39,6 @@ module.exports = function(app){
       res.redirect(`/gTutor/${req.session.user}`);
     }
   }
-
 
 
 }
