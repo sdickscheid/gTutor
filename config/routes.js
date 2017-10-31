@@ -3,5 +3,7 @@ const template = require("../controllers/template.js")
 module.exports = function(app){
 
   app.get('/', template.index);
+  app.get('/registration', template.regis);
+  app.get('/requestQ', template.requestQ);
 
 }

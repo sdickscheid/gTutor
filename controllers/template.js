@@ -5,4 +5,12 @@ module.exports = {
   index: function(req, res) {
     res.render("login");
   },
+
+  regis: function(req,res){
+    res.render("registration")
+  },
+
+  requestQ: function(req,res){
+    res.render("requestQ")
+  }
 }
