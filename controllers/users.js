@@ -19,29 +19,36 @@ module.exports = {
     knex('users')
       .where('email', req.body.email)
       .then((encryptedUser) => {
-        user = encryptedUser[0];
-        encryption.check(user, req.body)
-          .then((isMatch) => {
-            if (isMatch) {
-              if (user.role === 'ADMIN') {
-                req.session.admin = user.id;
-                console.log(`${user.first_name} is an admin.`);
-              } else {
-                req.session.user = user.id;
-                console.log(`${user.first_name} is NOT an admin.`)
-              }
+        if (encryptedUser[0]) {
+          user = encryptedUser[0];
+          encryption.check(user, req.body)
+            .then((isMatch) => {
+              if (isMatch) {
+                if (user.role === 'ADMIN') {
+                  req.session.admin = user.first_name;
+                  console.log(`${user.first_name} is an admin.`);
+                } else {
+                  req.session.user = user.first_name;
+                  console.log(`${user.first_name} is NOT an admin.`)
+                }
 
-              req.session.save((err) => {
-                if (err) throw err;
-                res.redirect(`/gTutor/${user.id}`);
-              })
-            } else {
-              req.session.message = "Invalid username or password. Please try again.";
-              req.session.save((err) => {
-                res.redirect('/gTutor');
-              })
-            }
+                req.session.save((err) => {
+                  if (err) throw err;
+                  res.redirect(`/gTutor/${user.id}`);
+                })
+              } else {
+                req.session.message = "Invalid username or password. Please try again.";
+                req.session.save((err) => {
+                  res.redirect('/gTutor');
+                })
+              }
+            })
+        } else {
+          req.session.message = "Invalid username or password. Please try again.";
+          req.session.save((err) => {
+            res.redirect('/gTutor');
           })
+        }
       })
       .catch((err) => {
         console.log(err);

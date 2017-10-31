@@ -1,5 +1,8 @@
 //Update the name of the controller below and rename the file.
-const users = require("../controllers/users.js")
+const users = require("../controllers/users.js");
+const posts = require("../controllers/posts.js")
+
+
 module.exports = function(app){
 
   app.get('/', users.redirect);
@@ -12,8 +15,11 @@ module.exports = function(app){
 
   app.use(requiresLoggedUser);
 
-  app.get('/gTutor/:id', users.dashboard);
+  // app.get('/gTutor/:id', users.dashboard);
+  app.get('/gTutor/:id', posts.getAll);
 
+  app.post('/gTutor/:id', posts.createOne);
+  
   app.use(requiresLoggedADMIN);
 
   function requiresLoggedUser(req, res, next) {
