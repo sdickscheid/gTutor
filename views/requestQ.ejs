@@ -7,32 +7,74 @@
   <body>
 <nav>
   <div id="nav-bar" class="nav-wrapper">
-    <div id="nav-bar" class="nav-wrapper">
-        <div id="nav-img"class="brand-logo center"><img src=" https://s3-us-west-2.amazonaws.com/galvanize.com-dev/galvanize-logo.svg" alt=""></div>
-       <h1 id="nav-heading"class="brand-logo center">gTutor</h1><br>
-    </div>
+      <div id="nav-img"class="brand-logo center"><img src=" https://s3-us-west-2.amazonaws.com/galvanize.com-dev/galvanize-logo.svg" alt=""></div>
+     <h1 id="nav-heading"class="brand-logo center">gTutor</h1><br>
+
+
   </div>
 </nav>
 
-<div class="parallax-container z-depth-5">
-      <div class="parallax"><img src="https://www.nicholspartnership.com/sites/default/files/styles/building-slideshow/public/galvanize_interior_bar.jpg?itok=-amHT4Pj"></div>
-    </div>
-
   <div class="container">
     <div class="row">
-      <div id="body-heading" class="center-align"><h2>Code Assistance Request Form</h2></div>
-      <div id="learn" class="center-align white-text"><h5>Enter the details of your help request below</h5></div>
+      <div id="body-heading" class=""><h2>Code Assistance Request Queue</h2></div>
+      <div id="bodyCampus" class="white-text"><h4>(City) Campus</h4></div>
 
-      <div class="col s3"><button id="btnOne"  class="btn waves-effect waves-light" type="submit" name="action">Login
-  </button></div>
-     <div class="col s2"><button id="btnTwo" class="btn waves-effect waves-light" type="submit" name="action">Register
-  </button></div>
-</div>
+      <div class="row">
+          <div class="col s6">
+            <ul class="tabs">
+              <li class="tab col s6"><a href="#test1" class="orange-text">All Requests</a></li>
+              <li class="tab col s6"><a href="#test2" class="orange-text">Your Requests</a></li>
+            </ul>
+          </div>
+          <div id="test1" class="col s12">
+            <div id="scrollOne" style="overflow-y: scroll; height:200px;">
+                <ul class="collapsible" data-collapsible="accordion">
+                  <li>
+                    <div class="collapsible-header">
+                    Hassan
+                    </div>
+                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                  </li>
+                  <li>
+                    <div class="collapsible-header">
+                    Scott
+                    </div>
+                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                  </li>
+                  <li>
+                    <div class="collapsible-header">
+                    Barbara
+                    </div>
+                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                  </li>
+                </ul>
+            </div>
+
+          </div>
+          <div id="test2" class="col s12">
+            <div id="scrollOne" style="overflow-y: scroll; height:200px;">
+              <ul class="collapsible" data-collapsible="accordion">
+                <li>
+                  <div class="collapsible-header">First</div>
+                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+                <li>
+                  <div class="collapsible-header">Second</div>
+                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+                <li>
+                  <div class="collapsible-header">Third</div>
+                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+
+    </div>
   </div>
-
-  <div class="parallax-container z-depth-5">
-        <div class="parallax"><img src="http://impactalpha.com/wp-content/uploads/2017/04/dsw_2014_WWS_Galvanize_Gather2-1200x635-938x535.jpg"></div>
-      </div>
 
   <footer class="page-footer">
          <div class="container">
@@ -50,17 +92,21 @@
          </div>
        </footer>
 
-
-       <script
-         src="https://code.jquery.com/jquery-2.2.4.min.js"
-         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-         crossorigin="anonymous"></script>
-
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="crossorigin="anonymous"></script>
      <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+  $('select').material_select();
+    });
+    $(document).ready(function(){
+     $('.collapsible').collapsible();
+   });
+  </script>
 
   <style media="screen">
     body{
@@ -83,7 +129,6 @@
       color:#e9933e;
       margin-top: 3%;
     }
-
     #body-heading{
       color:#e9933e;
       margin-bottom: 5%;
@@ -92,27 +137,25 @@
     #learn{
       margin-bottom: 5%;
     }
-  
+
+    #box{
+      margin-left: 30%;
+    }
+
+    #boxHead{
+      color:#e9933e;
+    }
+
     #btnOne{
-      margin-left: 100%;
+      margin-left: 230%;
       background-color: #424242;
     }
 
     #btnOne:hover {
     background-color: #4ab5cd;
     }
-
-    #btnTwo{
-      margin-left: 250%;
-      background-color: #424242;
-    }
-
-    #btnTwo:hover {
-    background-color: #4ab5cd;
-    }
-
     .page-footer{
-      position: flex;
+      position: absolute;
       right: 0;
       bottom: 0;
       left: 0;
@@ -121,11 +164,6 @@
     }
 
   </style>
-  <script type="text/javascript">
-  $(document).ready(function(){
-    $('.parallax').parallax();
-  });
-  </script>
 
   </body>
 

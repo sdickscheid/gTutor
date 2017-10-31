@@ -2,11 +2,6 @@
 const users = require("../controllers/users.js")
 module.exports = function(app){
 
-<<<<<<< HEAD
-  app.get('/', template.index);
-  app.get('/registration', template.regis);
-  app.get('/requestQ', template.requestQ);
-=======
   app.get('/', users.redirect);
 
   app.get('/gTutor', users.index);
@@ -14,6 +9,8 @@ module.exports = function(app){
   app.post('/gTutor/login', users.login);
 
   app.post('/gTutor/register', users.register);
+
+  app.get('/gTutor/request', users.request);
 
   app.use(requiresLoggedUser);
 
@@ -37,7 +34,5 @@ module.exports = function(app){
     }
   }
 
-
->>>>>>> 83d18c40eb72ef0e2c9e0c31760c17f9d711575c
 
 }
