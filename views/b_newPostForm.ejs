@@ -9,7 +9,7 @@
     <h2>Welcome back, <%= userName %></h2>
 
     <h4>Create New Post:</h4>
-    <form class="" action="#" method="post">
+    <form class="" action="/gTutor/posts" method="post">
 
       <label for="topic">Topic: </label>
       <select class="" name="topic">
@@ -53,19 +53,21 @@
         <% } else { %>
           <% if (posts[i].status === "PENDING") {
                let myHelps = helps.filter((post) => {
-                 if (post.id === posts[i].id) {
-                   if (post.user_id === loggedUserID) {
+                 if (post.post_id === posts[i]["posts.id"]) {
+                   if (post.user_id == loggedUserID) {
                      return post;
                    }
                  }
                });
+
             if (myHelps[0]) { %>
               <a class="btn disabled" href="#">You have offered to help - Waiting on OP's reply.</a>
             <% } else { %>
-              <a class="btn" href="#">Offer To Help</a>
+              <!-- <a class="btn" href="/gTutor/<%=loggedUserID%>/help/<%=posts[i].id%>">Offer To Help</a> -->
+              <a class="btn" href="/gTutor/posts/help/<%=posts[i]["posts.id"]%>">Offer To Help</a>
             <% } %>
           <% } else { %>
-            <a class="button" href="#">Offer To Help</a>
+            <a class="button" href="/gTutor/posts/help/<%=posts[i]["posts.id"]%>">Offer To Help</a>
           <% } %>
         <% } %>
       <% } %>
@@ -79,13 +81,45 @@
           let date = String(personalPosts[i].created_at);
           date = date.split(" ");
       %>
+      <div style="border: 1px solid black">
         <p>Posted On: <%= date[0] %> <%= date[1] %> <%= date[2] %> <%= date[3] %></p>
         <p>TOPIC: <%= personalPosts[i].topic %></p>
         <p>TITLE: <%= personalPosts[i].title %></p>
         <p>CONTENT: <%= personalPosts[i].content %></p>
+        <% if (personalPosts[i].status === "PENDING") { %>
+          <p>STATUS: <%= personalPosts[i].status %></p>
+          <% console.log('frontend:', messages) %>
+          <% for (let j = 0; j < messages.length; j++) {
+            if (messages[j].post_id === personalPosts[i]["posts.id"]) { %>
+              <p>FROM: <%= messages[j].first_name %> <%= messages[j].last_name %></p>
+              <p>MESSAGE: <%= messages[j].message %> </p>
+              <p>STATUS: <%= messages[j].status %> </p>
+              <% console.log("messages[j]", messages[j]) %>
+              <a href="/gTutor/posts/<%=messages[j].helper_id%>/accept">ACCEPT</a>
+              <a href="/gTutor/posts/<%=messages[j].helper_id%>/reject">REJECT</a>
+            <% }
+          }%>
+
+        <% } %>
+      </div>
       <% } %>
     <% } else { %>
       <p>No posts yet :-(</p>
+    <% } %>
+
+    <h4>Your Offered Helps</h4>
+    <% for (let i = 0; i < offeredHelp.length; i++) { %>
+      <p>POSTED BY: <%= offeredHelp[i].first_name%> <%= offeredHelp[i].last_name%> </p>
+      <p>TITLE: <%= offeredHelp[i].title%></p>
+      <p>TOPIC: <%= offeredHelp[i].topic%></p>
+      <p>CONTENT: <%= offeredHelp[i].content%></p>
+      <% for (let j = 0; j < sentMessages.length; j++) {
+        console.log("offeredHelp", offeredHelp[i])
+        if (sentMessages[j].post_id == offeredHelp[i]["posts.id"]) { %>
+          <p>YOUR RESPONSE: <%= sentMessages[j].message %></p>
+          <p>STATUS: <%= sentMessages[j].status%></p>
+        <% } %>
+      <% } %>
     <% } %>
   </body>
 </html>
