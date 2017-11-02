@@ -9,7 +9,6 @@ module.exports = {
             .select('posts.id AS posts.id', 'user_id', 'posts.topic', 'posts.title', 'posts.content', 'posts.status', 'posts.created_at', 'users.first_name', 'users.last_name', 'users.email', 'users.campus', 'users.cohort', 'users.type')
             .join('users', 'users.id', 'posts.user_id')
             .orderBy('posts.id', 'DESC')
-            // .whereNot('posts.status', 'CLOSED')
             .then((postsList) => {
               knex('helpers')
                 .then((allHelps) => {
@@ -30,28 +29,16 @@ module.exports = {
                       if (helpsOffered[0]) {
                         let helpID = allHelps.filter((helpers) => helpers.post_id === helpsOffered[0]["posts.id"])
 
-                        // console.log('helpID', helpID);
-
-                        // messagesReceived = allMessages.filter((messages, index) => {
-                        //
-                        //   if (index < helpID.length) {
-                        //     if (messages.helper_id === helpID[index].id) {
-                        //       return messages
-                        //     }
-                        //   }
-                        // });
-
                           for (var i = 0; i < helpID.length; i++) {
                             let thisArr = allMessages.filter(messages => messages.helper_id === helpID[i].id);
                             messagesReceived = messagesReceived.concat(thisArr);
                             console.log("thisArr", thisArr)
                           }
+                          // let messagesReceived = allMessages.filter(messages => helpID.indexOf(messages.helper_id) > -1);
 
                         }
-                        // });
 
-                        console.log('messagesReceived', messagesReceived);
-                      //}
+                      console.log('messagesReceived', messagesReceived);
 
                       let messagesSent = [];
                       let postsOfferedHelp = [];
@@ -82,7 +69,6 @@ module.exports = {
   },
 
   createOne: function(req, res) {
-
     knex('posts')
       .then((allPosts) => {
         let userHasPost = allPosts.filter(post => post.user_id == req.session.user);
