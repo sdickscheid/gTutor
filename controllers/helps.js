@@ -10,7 +10,7 @@ module.exports = {
             knex('users')
               .where('users.id', req.session.user)
               .then((loggedUser) => {
-                res.render('b_offerHelp', {post: foundPost[0], user: loggedUser[0]});
+                res.render('s4_requestOffer', {post: foundPost[0], user: loggedUser[0]});
               });
         })
         .catch((err) => {
