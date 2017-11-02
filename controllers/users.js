@@ -12,7 +12,7 @@ module.exports = {
       messageToPage = req.session.message;
       req.session.message = "";
     }
-    res.render('h_loginPage', {message: messageToPage});
+    res.render('s6_requestDashboard', {message: messageToPage});
   },
 
   login: function(req, res) {
