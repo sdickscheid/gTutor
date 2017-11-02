@@ -16,6 +16,7 @@ module.exports = {
   },
 
   login: function(req, res) {
+    console.log(req.body)
     knex('users')
       .where('email', req.body.email)
       .then((encryptedUser) => {

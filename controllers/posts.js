@@ -83,6 +83,7 @@ module.exports = {
 
   createOne: function(req, res) {
 
+    console.log(newPost);
     knex('posts')
       .then((allPosts) => {
         let userHasPost = allPosts.filter(post => post.user_id == req.session.user);
