@@ -6,7 +6,7 @@
     <script src="https://use.fontawesome.com/71f27b38fa.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style_login.css">
+    <link rel="stylesheet" href="/css/style_login.css">
   </head>
 
   <body>
@@ -30,7 +30,7 @@
         </div>
       </div>
 
-
+      <%= message %>
       <div class="row">
         <div class="form-container">
           <form class="col s4 offset-s4 form z-depth-2" action="/gTutor/login" method="post">
@@ -50,7 +50,7 @@
             </div>
 
             <div class="row">
-              <a id="btn-login" class="waves-effect waves-light btn col s12" type="submit" value="Login">Login</a>
+              <button id="btn-login" class="waves-effect waves-light btn col s12" type="submit" value="Login">Login</button>
             </div>
 
           </form>
