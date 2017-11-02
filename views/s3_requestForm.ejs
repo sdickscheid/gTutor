@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>gTutor - Request Form</title>
+    <script src="https://use.fontawesome.com/71f27b38fa.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style_login.css">
+  </head>
+
+  <body>
+    <nav class="nav-wrapper">
+        <div id="nav-img" class="brand-logo center"></div>
+        <div class="nav-heading">
+          <h1 id="nav-heading" class="brand-logo center">gTutor</h1>
+        </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div id="body-heading" class="center-align">
+          <h3>Code Assistance Request Form</h3>
+        </div>
+      </div>
+
+      <div class="row">
+        <div id="learn" class="center-align white-text">
+          <h5>Create and submit your help request below</h5>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="form-container">
+          <form class="col s8 offset-s2 form z-depth-2" action="/gTutor/login" method="post">
+
+            <div class="row">
+              <div id="form-top-row" class="input-field col s9">
+                <input id="request_title" type="text" class="validate" name="request_title" placeholder="Title">
+                <label for="request_title">Title</label>
+              </div>
+
+              <div id="form-top-row" class="input-field col s3">
+                <select>
+                  <option value="0" selected>Select a topic area</option>
+                  <option value="1">HTML/CSS</option>
+                  <option value="2">JavaScript</option>
+                  <option value="3">DOM Manipulation</option>
+                  <option value="4">jQuery/AJAX</option>
+                  <option value="5">SQL/Postgres</option>
+                  <option value="6">Express</option>
+                  <option value="7">KNEX</option>
+                  <option value="8">Chicago</option>
+                </select>
+                <label>Materialize Select</label>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="request_description" type="text" class="validate" name="request_description" placeholder="Provide a brief description of your challenge">
+                <label for="request_description">Description</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s3">
+                <input id="request_date1" type="text" class="validate datepicker" name="request_date1" placeholder="Select Date">
+                <label for="request_date1">1st Date Available</label>
+              </div>
+              <div class="input-field col s3">
+                <input id="request_date2" type="text" class="validate datepicker" name="request_date2" placeholder="Select Date">
+                <label for="request_date2"> 2nd Date Available</label>
+              </div>
+              <div class="input-field col s3">
+                <input id="request_time_start" type="text" class="validate timepicker" name="request_time_start" placeholder="Select Start Time">
+                <label for="request_time_start">Timeframe Start</label>
+              </div>
+              <div class="input-field col s3">
+                <input id="request_time_end" type="text" class="validate timepicker" name="request_time_end" placeholder="Select End Time">
+                <label for="request_time_end">Timeframe End</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <a id="btn-registration" class="waves-effect waves-light btn col s12" type="submit" value="Login">Submit Request</a>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    <!-- END container -->
+    </div>
+
+<footer class="page-footer">
+ <div class="container">
+   <div class="row">
+     <div class="center-align">
+       <h5 class="white-text"> a <span style="color:#e9933e;">galvanize</span> student project</h5>
+     </div>
+   </div>
+ </div>
+
+ <div class="footer-copyright">
+   <div class="container center">
+   © 2017 gTutor | Barbara Doring, Hassan Khan, Scott Dickscheid | All Rights Reserved
+   <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
+   </div>
+ </div>
+</footer>
+
+  <!-- Compiled and minified jQuery -->
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="crossorigin="anonymous"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+      $('select').material_select();
+    });
+
+    $('.datepicker').pickadate({
+      selectMonths: true, // Creates a dropdown to control month
+      selectYears: 15, // Creates a dropdown of 15 years to control year,
+      today: 'Today',
+      clear: 'Clear',
+      close: 'Ok',
+      closeOnSelect: false // Close upon selecting a date,
+    });
+
+    $('.timepicker').pickatime({
+      default: 'now', // Set default time: 'now', '1:30AM', '16:30'
+      fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
+      twelvehour: false, // Use AM/PM or 24-hour format
+      donetext: 'OK', // text for done-button
+      cleartext: 'Clear', // text for clear-button
+      canceltext: 'Cancel', // Text for cancel-button
+      autoclose: false, // automatic close timepicker
+      ampmclickable: true, // make AM PM clickable
+      aftershow: function(){} //Function for after opening timepicker
+    });
+    </script>
+  </body>
+
+</html>
