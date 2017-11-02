@@ -108,5 +108,49 @@ module.exports = {
               })
           }
       })
+  },
+
+  getOne: function(req, res) {
+    knex('posts')
+      .where('id', req.params.postID)
+      .then((result) => {
+        res.render('b_requestForm', {post: result[0]});
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  },
+
+  update: function(req, res) {
+
+    let updatedPost = {
+      title: req.body.title,
+      topic: req.body.topic,
+      content: req.body.content
+    };
+
+    knex('posts')
+      .update(updatedPost, '*')
+      .where('id', req.params.postID)
+      .then((result) => {
+        res.redirect('/gTutor/posts');
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  },
+
+  delete: function(req, res) {
+    console.log('delete');
+    knex('posts')
+      .where('id', req.params.postID)
+      .del()
+      .then((deletedPost) => {
+        console.log(deletedPost);
+        res.redirect('/gTutor/posts');
+      })
+      .catch((err) => {
+        console.log(err);
+      })
   }
 }
