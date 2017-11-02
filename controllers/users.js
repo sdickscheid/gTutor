@@ -7,12 +7,17 @@ module.exports = {
   },
 
   index: function(req, res) {
+    res.render('index');
+  },
+
+  check: function(req, res) {
     let messageToPage = "";
     if (req.session.message) {
       messageToPage = req.session.message;
       req.session.message = "";
     }
-    res.render('s6_requestDashboard', {message: messageToPage});
+
+    res.render('loginPage', {message: messageToPage});
   },
 
   login: function(req, res) {
@@ -41,20 +46,24 @@ module.exports = {
               } else {
                 req.session.message = "Invalid username or password. Please try again.";
                 req.session.save((err) => {
-                  res.redirect('/gTutor');
+                  res.redirect('/gTutor/login');
                 })
               }
             })
         } else {
           req.session.message = "Invalid username or password. Please try again.";
           req.session.save((err) => {
-            res.redirect('/gTutor');
+            res.redirect('/gTutor/login');
           })
         }
       })
       .catch((err) => {
         console.log(err);
       })
+  },
+
+  registrationPage: function(req, res) {
+    res.render('registration');
   },
 
   register: function(req,res) {

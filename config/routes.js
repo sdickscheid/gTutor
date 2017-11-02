@@ -10,7 +10,11 @@ module.exports = function(app){
 
   app.get('/gTutor', users.index);
 
+  app.get('/gTutor/login', users.check);
+
   app.post('/gTutor/login', users.login);
+
+  app.get('/gTutor/register', users.registrationPage);
 
   app.post('/gTutor/register', users.register);
 
@@ -19,6 +23,12 @@ module.exports = function(app){
   app.get('/gTutor/posts', posts.getAll);
 
   app.post('/gTutor/posts', posts.createOne);
+
+  app.get('/gTutor/posts/edit/:postID', posts.getOne);
+
+  app.post('/gTutor/posts/edit/:postID', posts.update);
+
+  app.get('/gTutor/posts/delete/:postID', posts.delete);
 
   app.get('/gTutor/posts/help/:postID', helps.index);
 

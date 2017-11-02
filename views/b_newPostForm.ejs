@@ -49,7 +49,8 @@
         <p>CONTENT: <%= posts[i].content %></p>
 
         <% if (posts[i].user_id == loggedUserID) { %>
-          <a class="btn orange" href="#">EDIT</a>
+          <a class="btn orange" href="/gTutor/posts/edit/<%= posts[i]["posts.id"] %>">EDIT</a>
+          <a class="btn red" href="/gTutor/posts/delete/<%= posts[i]["posts.id"] %>">DELETE</a>
         <% } else { %>
           <% if (posts[i].status === "PENDING") {
                let myHelps = helps.filter((post) => {

@@ -33,25 +33,25 @@
 
       <div class="row">
         <div class="form-container">
-          <form class="col s8 offset-s2 form z-depth-2" action="/gTutor/login" method="post">
+          <form class="col s8 offset-s2 form z-depth-2" action="/gTutor/posts/edit/<%= post.id %>" method="post">
 
             <div class="row">
               <div id="form-top-row" class="input-field col s9">
-                <input id="request_title" type="text" class="validate" name="request_title" placeholder="Title">
+                <input id="request_title" type="text" class="validate" name="title" value="<%= post.title %>">
                 <label for="request_title">Title</label>
               </div>
 
               <div id="form-top-row" class="input-field col s3">
-                <select>
-                  <option selected>Select a topic area</option>
-                  <option value="HTML/CSS">HTML/CSS</option>
-                  <option value="Javascript">JavaScript</option>
-                  <option value="Dom Manipulation">DOM Manipulation</option>
-                  <option value="jQuery/AJAX">jQuery/AJAX</option>
-                  <option value="SQL/Postgres">SQL/Postgres</option>
-                  <option value="Express">Express</option>
-                  <option value="KNEX">KNEX</option>
-                  <option value="Chicago">Chicago</option>
+                <select name="topic">
+                  <option value="0" selected>Select a topic area</option>
+                  <option value="1">HTML/CSS</option>
+                  <option value="2">JavaScript</option>
+                  <option value="3">DOM Manipulation</option>
+                  <option value="4">jQuery/AJAX</option>
+                  <option value="5">SQL/Postgres</option>
+                  <option value="6">Express</option>
+                  <option value="7">KNEX</option>
+                  <option value="8">Chicago</option>
                 </select>
                 <label>Materialize Select</label>
               </div>
@@ -60,12 +60,12 @@
 
             <div class="row">
               <div class="input-field col s12">
-                <input id="request_description" type="text" class="validate" name="request_description" placeholder="Provide a brief description of your challenge">
+                <input id="request_description" type="text" class="validate" name="content" value="<%= post.content %>">
                 <label for="request_description">Description</label>
               </div>
             </div>
 
-            <div class="row">
+            <!-- <div class="row">
               <div class="input-field col s3">
                 <input id="request_date1" type="text" class="validate datepicker" name="request_date1" placeholder="Select Date">
                 <label for="request_date1">1st Date Available</label>
@@ -82,10 +82,10 @@
                 <input id="request_time_end" type="text" class="validate timepicker" name="request_time_end" placeholder="Select End Time">
                 <label for="request_time_end">Timeframe End</label>
               </div>
-            </div>
+            </div> -->
 
             <div class="row">
-              <a id="btn-registration" class="waves-effect waves-light btn col s12" type="submit" value="Login">Submit Request</a>
+              <button id="btn-registration" class="waves-effect waves-light btn col s12" type="submit">Submit Request</button>
             </div>
 
           </form>
