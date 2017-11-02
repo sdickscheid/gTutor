@@ -5,12 +5,17 @@ exports.up = function(knex, Promise) {
     table.integer('post_id')
       .references('id')
       .inTable('posts')
+      .onDelete('CASCADE')
       .index();
     table.integer('user_id')
       .references('id')
       .inTable('users')
+      .onDelete('CASCADE')
       .index();
-    table.timestamps(true);
+    table.string('status')
+      .notNullable()
+      .defaultTo('PENDING REVIEW');
+    table.timestamps(true, true);
   })
 };
 
