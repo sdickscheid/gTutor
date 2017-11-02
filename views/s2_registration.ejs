@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>gTutor - Registration</title>
+    <script src="https://use.fontawesome.com/71f27b38fa.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style_login.css">
+  </head>
+
+  <body>
+    <nav class="nav-wrapper">
+        <div id="nav-img" class="brand-logo center"></div>
+        <div class="nav-heading">
+          <h1 id="nav-heading" class="brand-logo center">gTutor</h1>
+        </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div id="body-heading" class="center-align">
+          <h3>Create a free gTutor account below</h3>
+        </div>
+      </div>
+
+      <div class="row">
+        <div id="learn" class="center-align white-text">
+          <h5>gTutor Registration Form</h5>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="form-container">
+          <form class="col s8 offset-s2 form z-depth-2" action="/gTutor/login" method="post">
+
+            <div class="row">
+              <div id="form-top-row" class="input-field col s6">
+                <input id="first_name" type="text" class="validate" name="first_name" placeholder="First Name">
+                <label for="first_name">First Name</label>
+              </div>
+
+              <div id="form-top-row" class="input-field col s6">
+                <input id="last_name" type="text" class="validate" name="last_name" placeholder="Last Name">
+                <label for="last_name">Last Name</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <!-- <div class="input-field col s6">
+                <input id="campus" type="text" class="validate" name="campus" placeholder="Campus">
+                <label for="campus">Campus</label>
+              </div> -->
+              <div class="input-field col s6">
+                <select>
+                  <option value="0" selected>Select your campus</option>
+                  <option value="1">Austin, TX</option>
+                  <option value="2">Boulder, CO</option>
+                  <option value="3">Denver, CO (Golden Triangle)</option>
+                  <option value="4">Denver, CO (Platte)</option>
+                  <option value="5">New York City, NY</option>
+                  <option value="6">Phoenix, AZ</option>
+                  <option value="7">San Francisco, CA</option>
+                  <option value="8">Seattle, WA</option>
+                </select>
+                <label>Campus</label>
+              </div>
+
+              <!-- <div class="input-field col s4">
+                <input id="gStatus" type="text" class="validate" name="gStatus" placeholder="gStatus">
+                <label for="gStatus">gStatus</label>
+              </div> -->
+              <div class="input-field col s4">
+                <select>
+                  <option value="0" selected>Select your gStatus</option>
+                  <option value="1">Student</option>
+                  <option value="2">Alumni</option>
+                  <option value="3">Instructor</option>
+                  <option value="4">Mentor</option>
+                </select>
+                <label>gStatus</label>
+              </div>
+
+              <div class="input-field col s2">
+                <input id="cohort" type="text" class="validate" name="cohort" placeholder="Cohort">
+                <label for="cohort">Cohort</label>
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="email" type="email" class="validate" name="email" placeholder="email">
+                <label for="email">Email</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="password" type="password" class="validate" name="password" placeholder="create a password">
+                <label for="password">Password</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <a id="btn-registration" class="waves-effect waves-light btn col s12" type="submit" value="Login">Submit Registration</a>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    <!-- END container -->
+    </div>
+
+<footer class="page-footer">
+ <div class="container">
+   <div class="row">
+     <div class="center-align">
+       <h5 class="white-text"> a <span style="color:#e9933e;">galvanize</span> student project</h5>
+     </div>
+   </div>
+ </div>
+
+ <div class="footer-copyright">
+   <div class="container center">
+   © 2017 gTutor | Barbara Doring, Hassan Khan, Scott Dickscheid | All Rights Reserved
+   <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
+   </div>
+ </div>
+</footer>
+
+  <!-- Compiled and minified jQuery -->
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="crossorigin="anonymous"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('select').material_select();
+  });
+    </script>
+  </body>
+
+</html>

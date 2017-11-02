@@ -1,0 +1,188 @@
+body{
+  background-color:#34525f;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+flex: 1 0 auto;
+}
+
+.row {
+  margin: 0px;
+  padding: 0px;
+}
+
+.nav-wrapper{
+  background-color:#143b4b;
+  padding-bottom: 6%;
+}
+
+#nav-img {
+  background-image: url('../images/galvanize-logo.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 125px;
+  width: 200px;
+  margin-top: 15px;
+}
+
+#nav-heading{
+  color:#ffffff;
+  text-align: center;
+  margin-top: 3.5%;
+}
+#body-heading{
+  color:#e9933e;
+  margin-top: 5%;
+  margin-bottom: 3%;
+}
+
+#learn{
+  margin-bottom: 3%;
+}
+
+#campus{
+  margin-top: 3%;
+}
+
+/* ^^^ keep ----------------*/
+
+/* START LOGIN FORM STYLING */
+.form {
+  background-color: #596d79;
+  border: 2px solid #2E4A56;
+  margin-bottom: 20px;
+}
+.request-offer-form {
+  background-color: #869199;
+  border: 1px solid #2E4A56;
+  margin-bottom: 20px;
+}
+
+/*.table-container {
+  padding: 5px;
+}*/
+
+#request-offer-top {
+  margin-left: 10px;
+}
+#request-offer-mid {
+  margin-left: 10px;
+}
+#request-offer-bottom {
+
+}
+
+.accept-rejection {
+  display: flex;
+  margin-bottom: 25px;
+  padding-right: 30px;
+}
+
+.add-comments-div {
+  padding: 10px;
+}
+
+#btn-accept-offer {
+  width: 45%;
+  justify-content: space-between;
+}
+
+#btn-reject-offer {
+  width: 45%;
+  justify-content: space-between;
+}
+
+.request-offer-headers {
+  margin-top: 30px;
+  margin-left: 10px;
+  font-size: 26px;
+  font-family: "Trebuchet MS";
+}
+
+.request-offer-content {
+  margin-left: 10px;
+}
+
+.table {
+  background-color: #5d6d78;
+  border: 2px solid #2E4A56;
+  margin-bottom: 20px;
+}
+
+.table-title {
+  font-size: 24px;
+}
+.col-header {
+  font-weight: bold;
+  vertical-align: text-top;
+}
+
+.col-data {
+  vertical-align: text-top;
+  width: 125px;
+}
+
+.col-data2 {
+  vertical-align: text-top;
+}
+
+.col-empty {
+  width: 35px;
+}
+
+#form-top-row {
+  margin-top: 40px;
+}
+
+#btn-login{
+  background-color: #47818c;
+  margin: 10px 10px 10px 10px;
+  width: 95%;
+}
+
+#btn-login:hover {
+  background-color: #4ab5cd;
+}
+
+/* END LOGIN FORM STYLING */
+
+
+/* START REGISTRATION FORM*/
+#btn-registration{
+  background-color: #47818c;
+  margin: 10px 10px 10px 10px;
+  width: 98%;
+}
+
+#btn-registration:hover {
+  background-color: #4ab5cd;
+}
+/* END REGISTRATION FORM*/
+
+.page-footer{
+  position: flex;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color:#2e4a56;
+}
+
+/* DASHBOARD STYLING */
+.main-section {
+  height: 500px;
+  background-color: #5d6d78;
+  margin-bottom: 25px;
+}
+
+.tab-header-section {
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+.tab-header-each {
+  background-color: #2e4a56;
+}
