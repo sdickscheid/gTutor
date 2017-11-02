@@ -54,6 +54,8 @@ flex: 1 0 auto;
 
 #btnOne{
   margin-left: 135%;
+  padding-right: 18%;
+  padding-left:18%;
   background-color: #424242;
 }
 
@@ -66,7 +68,7 @@ background-color: #4ab5cd;
   background-color: #424242;
 }
 
-#btnOne:hover {
+#btnTwo:hover {
 background-color: #4ab5cd;
 }
 .page-footer{
