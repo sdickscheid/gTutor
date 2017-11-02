@@ -8,6 +8,7 @@ module.exports = {
 
   index: function(req, res) {
     res.render('index');
+    // res.render('s4_requestOffer');
   },
 
   check: function(req, res) {
