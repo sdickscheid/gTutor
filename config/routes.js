@@ -1,6 +1,7 @@
 //Update the name of the controller below and rename the file.
 const users = require("../controllers/users.js");
-const posts = require("../controllers/posts.js")
+const posts = require("../controllers/posts.js");
+const helps = require("../controllers/helps.js");
 
 
 module.exports = function(app){
@@ -13,19 +14,29 @@ module.exports = function(app){
 
   app.post('/gTutor/register', users.register);
 
-  app.get('/gTutor/request', users.request);
-
   app.use(requiresLoggedUser);
 
-  // app.get('/gTutor/:id', users.dashboard);
-  app.get('/gTutor/:id', posts.getAll);
+  app.get('/gTutor/posts', posts.getAll);
 
-  app.post('/gTutor/:id', posts.createOne);
-  
+  app.post('/gTutor/posts', posts.createOne);
+
+  app.get('/gTutor/posts/help/:postID', helps.index);
+
+  app.post('/gTutor/posts/help/:postID', helps.createOne);
+
+  app.get('/gTutor/posts/:helpID/:action', helps.action);
+
+  //add fallback
+
+  app.use(function(req, res) {
+    res.send('ROUTE NOT FOUND.');
+  })
+
   app.use(requiresLoggedADMIN);
 
   function requiresLoggedUser(req, res, next) {
     if (req.session.user || req.session.admin) {
+      console.log('req.session.user', req.session.user);
       next();
     } else {
       res.redirect('/gTutor')
