@@ -1,0 +1,70 @@
+body{
+  background-color:#34525f;
+  display: sticky;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+flex: 1 0 auto;
+}
+
+.row {
+  margin: 0px;
+  padding: 0px;
+}
+
+.nav-wrapper{
+  background-color:#143b4b;
+  padding-bottom: 6%;
+}
+
+#nav-img {
+  background-image: url('../images/galvanize-logo.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 125px;
+  width: 200px;
+  margin-top: 15px;
+}
+
+#nav-heading{
+  color:#ffffff;
+  text-align: center;
+  margin-top: 3.5%;
+
+}
+#body-heading{
+  color:#e9933e;
+  margin-top: 5%;
+  margin-bottom: 3%;
+}
+
+#learn{
+  margin-bottom: 5%;
+}
+
+#box{
+  margin-left: 33%;
+}
+
+#boxHead{
+  color:#e9933e;
+}
+
+#btnOne{
+  margin-left: 230%;
+  background-color: #424242;
+}
+
+#btnOne:hover {
+background-color: #4ab5cd;
+}
+.page-footer{
+  position: flex;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color:#2e4a56;
+}
