@@ -53,7 +53,16 @@ flex: 1 0 auto;
 }
 
 #btnOne{
-  margin-left: 230%;
+  margin-left: 135%;
+  background-color: #424242;
+}
+
+#btnOne:hover {
+background-color: #4ab5cd;
+}
+
+#btnTwo{
+  margin-left: 200%;
   background-color: #424242;
 }
 
