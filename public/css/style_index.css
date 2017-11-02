@@ -53,11 +53,22 @@ flex: 1 0 auto;
 }
 
 #btnOne{
-  margin-left: 230%;
+  margin-left: 135%;
+  padding-right: 18%;
+  padding-left:18%;
   background-color: #424242;
 }
 
 #btnOne:hover {
+background-color: #4ab5cd;
+}
+
+#btnTwo{
+  margin-left: 200%;
+  background-color: #424242;
+}
+
+#btnTwo:hover {
 background-color: #4ab5cd;
 }
 .page-footer{
