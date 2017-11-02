@@ -10,7 +10,7 @@
       <div id="nav-img"class="brand-logo center"><img src=" https://s3-us-west-2.amazonaws.com/galvanize.com-dev/galvanize-logo.svg" alt=""></div>
      <h1 id="nav-heading"class="brand-logo center">gTutor</h1><br>
 
-
+<%console.log(posts)%>
   </div>
 </nav>
 
@@ -20,52 +20,114 @@
       <div id="bodyCampus" class="white-text"><h4>(City) Campus</h4></div>
 
       <div class="row">
-          <div class="col s6">
+          <div class="col s12">
             <ul class="tabs">
-              <li class="tab col s6"><a href="#test1" class="orange-text">All Requests</a></li>
-              <li class="tab col s6"><a href="#test2" class="orange-text">Your Requests</a></li>
+              <li class="tab col s4"><a href="#test1" class="orange-text">Create Requests</a></li>
+              <li class="tab col s4"><a href="#test2" class="orange-text">All Requests</a></li>
+              <li class="tab col s4"><a href="#test3" class="orange-text">Your Requests</a></li>
             </ul>
           </div>
           <div id="test1" class="col s12">
-            <div id="scrollOne" style="overflow-y: scroll; height:200px;">
-                <ul class="collapsible" data-collapsible="accordion">
-                  <li>
-                    <div class="collapsible-header">
-                    Hassan
-                    </div>
-                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                  </li>
-                  <li>
-                    <div class="collapsible-header">
-                    Scott
-                    </div>
-                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                  </li>
-                  <li>
-                    <div class="collapsible-header">
-                    Barbara
-                    </div>
-                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                  </li>
-                </ul>
+            <div id="scrollOne" style="overflow-y: scroll; height:300px;">
+              <form class="" action="#" method="post">
+
+                <label for="topic">Topic: </label>
+                <select class="" name="topic">
+                  <option value="Chicago">Chicago</option>
+                  <option value="JavaScript">JavaScript</option>
+                  <option value="HTML">HTML</option>
+                  <option value="CSS">CSS</option>
+                  <option value="jQuery">jQuery</option>
+                  <option value="DOM">DOM</option>
+                  <option value="SQL">SQL</option>
+                  <option value="PostgreSQL">PostgreSQL</option>
+                  <option value="AJAX">AJAX</option>
+                  <option value="Node/Node Modules">Node/Node Modules</option>
+                  <option value="Heroku">Heroku</option>
+                  <option value="React">React</option>
+                  <option value="General Backend Questions">General Backend Questions</option>
+                  <option value="General Frontend Questions">General Frontend Questions</option>
+                  <option value="Other">Other</option>
+                </select>
+
+                <label for="title">Title</label>
+                <input type="text" name="title" placeholder="i.e.: JavaScript - Accumulator Pattern">
+
+                <label for="content">Content: </label>
+                <input type="text" name="content" placeholder="Briefly describe what you need help with">
+
+                <input type="submit" name="" value="Submit">
+              </form>
             </div>
 
           </div>
           <div id="test2" class="col s12">
-            <div id="scrollOne" style="overflow-y: scroll; height:200px;">
+            <div id="scrollTwo" style="overflow-y: scroll; height:200px;">
+                <ul class="collapsible" data-collapsible="accordion">
+                  <% if (posts[0]) { %>
+                    <% for (let i = 0; i < posts.length; i++) { %>
+                  <li>
+                    <div class="collapsible-header">
+                    <p>REQUESTED BY: <%= posts[i].first_name %> <%= posts[i].last_name %></p>
+                    <p>TOPIC: <%= posts[i].topic %></p>
+                    </div>
+                    <div class="collapsible-body">
+                    <p>TITLE: <%= posts[i].title %></p>
+                    <p>CONTENT: <%= posts[i].content %></p>
+                    <% if (posts[i].user_id == loggedUserID) { %>
+                    <button type="button" id="<%=posts[i].title%>" href="#modal1" class="modal-trigger">EDIT</button>
+
+                    <% } else { %>
+                      <% if (posts[i].status === "PENDING") {
+                           let myHelps = helps.filter((post) => {
+                             if (post.id === posts[i].id) {
+                               if (post.user_id === loggedUserID) {
+                                 return post;
+                               }
+                             }
+                           });
+                        if (myHelps[0]) { %>
+                          <a class="btn disabled" href="#">You have offered to help - Waiting on OP's reply.</a>
+                        <% } else { %>
+                          <a class="btn" href="#">Offer To Help</a>
+                        <% } %>
+                      <% } else { %>
+                        <a class="button" href="#">Offer To Help</a>
+                      <% } %>
+                    <% } %>
+                  <% } %>
+                <% } else { %>
+                  <p>No posts yet :-(</p>
+                <% } %>
+                  </li>
+                  </div>
+                </ul>
+            </div>
+
+          </div>
+          <div id="test3" class="col s12">
+            <div id="scrollThree" style="overflow-y: scroll; height:200px;">
               <ul class="collapsible" data-collapsible="accordion">
+                <% if (personalPosts[0]) { %>
+                  <% for (let i = 0; i < personalPosts.length; i++) {
+                    let date = String(personalPosts[i].created_at);
+                    date = date.split(" ");
+                %>
                 <li>
-                  <div class="collapsible-header">First</div>
-                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                  <div class="collapsible-header">
+                    <p>Posted On: <%= date[0] %> <%= date[1] %> <%= date[2] %> <%= date[3] %></p>
+                    <p>TOPIC: <%= personalPosts[i].topic %></p>
+                  </div>
+                  <div class="collapsible-body">
+                    <p>TITLE: <%= personalPosts[i].title %></p>
+                    <p>CONTENT: <%= personalPosts[i].content %></p>
+                    <% } %>
+                  <% } else { %>
+                    <p>No posts yet :-(</p>
+                  <% } %>
+                  </div>
                 </li>
-                <li>
-                  <div class="collapsible-header">Second</div>
-                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                </li>
-                <li>
-                  <div class="collapsible-header">Third</div>
-                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                </li>
+
               </ul>
             </div>
 
@@ -75,6 +137,46 @@
 
     </div>
   </div>
+
+  <!-- Modal Structure -->
+   <div id="modal1" class="modal bottom-sheet">
+     <div class="modal-content">
+        <form class="test" action="/edit" method="post">
+          <label for="topic">Topic: </label>
+          <select class="" name="topic">
+            <option value="Chicago">Chicago</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="HTML">HTML</option>
+            <option value="CSS">CSS</option>
+            <option value="jQuery">jQuery</option>
+            <option value="DOM">DOM</option>
+            <option value="SQL">SQL</option>
+            <option value="PostgreSQL">PostgreSQL</option>
+            <option value="AJAX">AJAX</option>
+            <option value="Node/Node Modules">Node/Node Modules</option>
+            <option value="Heroku">Heroku</option>
+            <option value="React">React</option>
+            <option value="General Backend Questions">General Backend Questions</option>
+            <option value="General Frontend Questions">General Frontend Questions</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <label for="title">Title</label>
+          <input id="titleInput" type="text" name="title" value="i.e.: JavaScript - Accumulator Pattern">
+
+          <label for="content">Content: </label>
+          <input id="contentInput" type="text" name="content" placeholder="Briefly describe what you need help with">
+
+          <input type="submit" name="" value="Submit">
+        </form>
+        </form>
+     </div>
+    </div>
+   </div>
+
+
+
+
 
   <footer class="page-footer">
          <div class="container">
@@ -100,12 +202,22 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
   <script type="text/javascript">
-  $(document).ready(function() {
-  $('select').material_select();
-    });
     $(document).ready(function(){
-     $('.collapsible').collapsible();
+      $('select').material_select();
+      $('.collapsible').collapsible();
+      $('.modal').modal();
+      $( ".modal-trigger" ).click(function() {
+        $("#titleInput").attr("placeholder",$(this)[0].id).blur();
+
+        // $.get('/get/'+$(this)[0].id, (result)=>{
+        //
+        // })
+      
    });
+
+
+
+
   </script>
 
   <style media="screen">

@@ -12,7 +12,7 @@ module.exports = {
             let user = req.session.user;
 
             let userPosts = postsList.filter(posts => posts.id == req.params.id);
-            res.render('b_newPostForm', {posts: postsList, userName: user, personalPosts: userPosts, helps: allHelps, loggedUserID: req.params.id});
+            res.render('requestQ', {posts: postsList, userName: user, personalPosts: userPosts, helps: allHelps, loggedUserID: req.params.id});
           })
 
       })
@@ -25,12 +25,11 @@ module.exports = {
     let newPost = {
       user_id: req.params.id,
       topic: req.body.topic,
-
       title: req.body.title,
       content: req.body.content
-
     }
 
+    console.log(newPost);
     knex('posts')
       .insert(newPost, '*')
       .then((post) => {

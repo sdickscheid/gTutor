@@ -8,6 +8,7 @@ exports.up = function(knex, Promise) {
       .index();
     table.string('topic');
     table.string('title');
+    table.text('content');
     table.string('status')
       .notNullable()
       .defaultTo('OPEN');
