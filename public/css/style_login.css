@@ -14,17 +14,22 @@ flex: 1 0 auto;
   padding: 0px;
 }
 
+.input-field label {
+  font-size: 16px;
+  color: black;
+}
+
 .nav-wrapper{
   background-color:#143b4b;
   padding-bottom: 6%;
 }
 
 #nav-img {
-  background-image: url('../images/galvanize-logo.png');
+  background-image: url('../images/gTutor-logo.svg');
   background-repeat: no-repeat;
   background-size: contain;
-  height: 125px;
-  width: 200px;
+  height: 150px;
+  width: 225px;
   margin-top: 15px;
 }
 
@@ -35,12 +40,13 @@ flex: 1 0 auto;
 }
 #body-heading{
   color:#e9933e;
-  margin-top: 5%;
+  margin-top: 3%;
   margin-bottom: 3%;
 }
 
 #learn{
-  margin-bottom: 3%;
+  margin-top: 3%;
+  margin-bottom: 1%;
 }
 
 #campus{
@@ -55,6 +61,7 @@ flex: 1 0 auto;
   border: 2px solid #2E4A56;
   margin-bottom: 20px;
 }
+
 .request-offer-form {
   background-color: #869199;
   border: 1px solid #2E4A56;
@@ -71,8 +78,8 @@ flex: 1 0 auto;
 #request-offer-mid {
   margin-left: 10px;
 }
-#request-offer-bottom {
 
+#request-offer-bottom {
 }
 
 .accept-rejection {
@@ -116,17 +123,18 @@ flex: 1 0 auto;
   font-size: 24px;
 }
 .col-header {
-  font-weight: bold;
   vertical-align: text-top;
 }
 
 .col-data {
   vertical-align: text-top;
   width: 125px;
+  color: white;
 }
 
 .col-data2 {
   vertical-align: text-top;
+  color: white;
 }
 
 .col-empty {
@@ -173,16 +181,75 @@ flex: 1 0 auto;
 
 /* DASHBOARD STYLING */
 .main-section {
-  height: 500px;
+  /*height: 500px;*/
   background-color: #5d6d78;
   margin-bottom: 25px;
 }
 
-.tab-header-section {
+.tab-headerrow-section {
   margin: 0px !important;
   padding: 0px !important;
 }
 
 .tab-header-each {
   background-color: #2e4a56;
+}
+
+#tab-allRequests{
+  background-color: #606d77;
+}
+
+#tab-myRequests{
+  background-color: #606d77;
+}
+
+#tab-confirmedRequests{
+  background-color: #606d77;
+}
+
+#tab-header{
+  color:#e9933e;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  font-family: "Trebuchet MS";
+}
+
+#tab-subheader {
+  margin-top: 1%;
+  margin-bottom: 2%;
+  font-family: "Trebuchet MS";
+}
+
+#tab-content-heading {
+  color:#e9933e;
+  margin-top: 5%;
+  margin-bottom: 3%;
+}
+
+#tab2-container {
+  border: 2px solid #2E4A56;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #596d79;
+}
+
+#tab2-content {
+  background-color: #596d79;
+  margin: 0px 2px;
+  padding: 10px;
+}
+
+#tab3-container {
+  border: 2px solid #2E4A56;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #596d79;
+}
+
+#tab3-content {
+  background-color: #596d79;
+  margin: 0px 2px;
+  padding: 10px;
 }
