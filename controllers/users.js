@@ -26,16 +26,17 @@ module.exports = {
             .then((isMatch) => {
               if (isMatch) {
                 if (user.role === 'ADMIN') {
-                  req.session.admin = user.first_name;
+                  req.session.admin = user.id;
                   console.log(`${user.first_name} is an admin.`);
                 } else {
-                  req.session.user = user.first_name;
+                  req.session.user = user.id;
                   console.log(`${user.first_name} is NOT an admin.`)
                 }
 
                 req.session.save((err) => {
                   if (err) throw err;
-                  res.redirect(`/gTutor/${user.id}`);
+                  //change res.redirect(`/gTutor/${user.id}`);
+                  res.redirect(`/gTutor/posts`);
                 })
               } else {
                 req.session.message = "Invalid username or password. Please try again.";
@@ -73,22 +74,16 @@ module.exports = {
           .insert(user, '*')
           .then((addedUser) => {
             console.log(addedUser);
-            req.session.id = addedUser.id;
+            req.session.user = addedUser[0].id;
             req.session.save((err) => {
-              res.redirect(`/gTutor/${addedUser[0].id}`);
+              //change res.redirect(`/gTutor/${addedUser[0].id}`);
+              res.redirect(`/gTutor/posts`);
             })
           })
       })
       .catch((err) => {
         console.log(err);
       })
-  },
-
-  request: function(req,res){
-    res.render("requestQ")
-  },
-
-  dashboard: function(req, res){
-    res.render('b_loggedin', {sessionID: req.session.user});
   }
+
 }
