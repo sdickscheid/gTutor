@@ -307,10 +307,6 @@ flex: 1 0 auto;
   color: #e9933e;
 }
 
-.conversation-label {
-
-}
-
 #my-tutor {
   color: #ffffff;
 }
@@ -345,4 +341,9 @@ flex: 1 0 auto;
 .offer-help-btn {
   margin-top: 25px;
   width: 250px;
+}
+
+.page-footer {
+  position: absolute;
+  bottom: 0;
 }
