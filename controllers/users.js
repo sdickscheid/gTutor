@@ -7,7 +7,19 @@ module.exports = {
   },
 
   index: function(req, res) {
-    res.render('index');
+    let user = "";
+    if (req.session.user) {
+      user = req.session.user;
+    }
+    res.render('index', {userInfo: user});
+  },
+
+  about: function(req, res){
+    let user = "";
+    if (req.session.user) {
+      user = req.session.user;
+    }
+    res.render('about', {userInfo: user});
   },
 
   check: function(req, res) {
@@ -17,7 +29,12 @@ module.exports = {
       req.session.message = "";
     }
 
-    res.render('loginPage', {message: messageToPage});
+    let user = "";
+    if (req.session.user) {
+      user = req.session.user;
+    }
+
+    res.render('loginPage', {message: messageToPage, userInfo: user});
   },
 
   login: function(req, res) {
@@ -86,13 +103,21 @@ module.exports = {
             req.session.user = addedUser[0].id;
             req.session.save((err) => {
               //change res.redirect(`/gTutor/${addedUser[0].id}`);
-              res.redirect(`/gTutor/posts`);
+              res.redirect(`/gTutor/login`);
             })
           })
       })
       .catch((err) => {
         console.log(err);
       })
+  },
+
+  logout: function(req, res) {
+    req.session.user = "";
+    req.session.save((err) => {
+      if (err) throw err;
+      res.redirect('/gTutor');
+    })
   }
 
 }
