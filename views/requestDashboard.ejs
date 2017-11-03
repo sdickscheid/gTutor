@@ -23,7 +23,7 @@
             <li class="tab col s3 tab-header-each"><a class="active" href="#tab-createRequests">Create Requests</a></li>
             <li class="tab col s3 tab-header-each"><a href="#tab-allRequests">All Requests</a></li>
             <li class="tab col s3 tab-header-each"><a href="#tab-myRequests">My Requests</a></li>
-            <li class="tab col s3 tab-header-each"><a href="#tab-confirmedRequests">Confirmed Requests</a></li>
+            <li class="tab col s3 tab-header-each"><a href="#tab-confirmedRequests">Tutor Offers</a></li>
           </ul>
         </div>
 
@@ -124,20 +124,16 @@
                                <table id="request-offer-top" class="tab2-content">
                                    <tr>
                                      <td class="col-header">Name:</td>
-                                     <!-- <td class="col-data">John Doe</td> -->
                                      <td class="col-data"><%= posts[i].first_name %> <%= posts[i].last_name %></td>
                                      <td class="col-empty"></td>
                                      <td class="col-header">Request ID:</td>
-                                     <!-- <td class="col-data2">#004</td> -->
                                      <td class="col-data2">#<%= posts[i]["posts.id"] %></td>
                                    </tr>
                                    <tr>
                                      <td class="col-header">gStatus:</td>
-                                     <!-- <td class="col-data">Student (g66)</td> -->
                                      <td class="col-data"><%= posts[i].type %> (<%= posts[i].cohort %>)</td>
                                      <td class="col-empty"></td>
                                      <td class="col-header">Title:</td>
-                                     <!-- <td class="col-data2">JavaScript --  Help with accumulator patterns</td> -->
                                      <td class="col-data2"><%= posts[i].title %></td>
                                    </tr>
                                    <tr>
@@ -145,7 +141,6 @@
                                      <td class="col-data">10/30/2017  10/31/2017</td>
                                      <td class="col-empty"></td>
                                      <td class="col-header">Description:</td>
-                                     <!-- <td class="col-data2">Struggling with  understanding and implementing accumulator patterns and iterating through arrays.</td> -->
                                      <td class="col-data2"><%= posts[i].content %></td>
                                    </tr>
                                    <tr>
@@ -197,7 +192,7 @@
                           </div>
                       <% } %>
 
-                             <!-- </div> -->
+
                   <!-- END CONTAINER -->
                   </div>
         <!-- END TAB 2 DATA -->
@@ -226,20 +221,16 @@
                       <table id="request-offer-top" class="tab2-content">
                         <tr>
                           <td class="col-header">Name:</td>
-                          <!-- <td class="col-data">John Doe</td> -->
                           <td class="col-data"><%= personalPosts[i].first_name %> <%= personalPosts[i].last_name %></td>
                           <td class="col-empty"></td>
                           <td class="col-header">Request ID:</td>
-                          <!-- <td class="col-data2">#004</td> -->
                           <td class="col-data2">#<%= personalPosts[i]["posts.id"] %></td>
                         </tr>
                         <tr>
                           <td class="col-header">gStatus:</td>
-                          <!-- <td class="col-data">Student (g66)</td> -->
                           <td class="col-data"><%= personalPosts[i].type %> (<%= personalPosts[i].cohort %>)</td>
                           <td class="col-empty"></td>
                           <td class="col-header">Title:</td>
-                          <!-- <td class="col-data2">JavaScript -- Help with accumulator patterns</td> -->
                           <td class="col-data2"><%= personalPosts[i].title %></td>
                         </tr>
                         <tr>
@@ -247,7 +238,6 @@
                           <td class="col-data">10/30/2017 10/31/2017</td>
                           <td class="col-empty"></td>
                           <td class="col-header">Description:</td>
-                          <!-- <td class="col-data2">Struggling with understanding and implementing accumulator patterns and iterating through arrays.</td> -->
                           <td class="col-data2"><%= personalPosts[i].content %></td>
                         </tr>
                         <tr>
@@ -259,7 +249,6 @@
                         </tr>
                       </table>
                       <% if (personalPosts[i].status === "PENDING") { %>
-                        <!-- <p>STATUS: <%= personalPosts[i].status %></p> -->
                         <% console.log('frontend:', messages) %>
                         <% for (let j = 0; j < messages.length; j++) {
                           if (messages[j].post_id === personalPosts[i]["posts.id"]) { %>
@@ -280,23 +269,26 @@
                       <% } else if (personalPosts[i].status === "CLOSED") {
                         let helperName = helper.filter(message => message.user_id != userInfo.id)[0]%>
                         <div class="message-container col s12 container " style="background-color:#626d76; padding-bottom:2%;">
-                          <p class="center">Confirmed!</p>
-                          <p>You have confirmed your tutoring session with <%= helperName.first_name %> <%= helperName.last_name %>.</p>
-                        <!-- <p> Helper Name: <div class="white-text"><%= helperName.first_name %> <%= helperName.last_name %></div></p> -->
-                        <p>Comments</p>
-                        <% for (let j = 0; j < helper.length; j++) { %>
-                          <p> Tutor: <%= helper[j].first_name %> </p>
-                          <p>Message: <%= helper[j].message %></p>
+                          <h4 id="confirmation-status" class="center">Confirmed!</h4>
+
+                          <p id="confirmation-notification">You have confirmed your tutoring session with <%= helperName.first_name %> <%= helperName.last_name %>.</p>
+
+                          <h5 id="confirmation-comments-header">Comments</h5>
+
+                          <% for (let j = 0; j < helper.length; j++) { %>
+
+                          <p class="conversation-label">Tutor: <%= helper[j].first_name %> </p>
+                          <p class="conversation-label">Message: <%= helper[j].message %></p>
 
                         <% } %>
                         </div>
                       <%}%>
-                      <!-- BABS -->
                     </div>
                     <% } %>
+
                     <% } else { %>
                       <div id="tab3-content" class="row">
-                      <p>No posts yet :-(</p>
+                      <p>There are no posts at this time.</p>
                       </div>
                     <% } %>
 
@@ -319,7 +311,6 @@
                   <table id="request-offer-top" class="tab2-content">
                     <tr>
                       <td class="col-header">Name:</td>
-                      <!-- <td class="col-data">John Doe</td> -->
                       <td class="col-data"><%= offeredHelp[i].first_name%> <%= offeredHelp[i].last_name%></td>
                       <td class="col-empty"></td>
                       <td class="col-header">Request ID:</td>
@@ -327,11 +318,9 @@
                     </tr>
                     <tr>
                       <td class="col-header">gStatus:</td>
-                      <!-- <td class="col-data">Student (g66)</td> -->
                       <td class="col-data"><%= offeredHelp[i].type%> (<%= offeredHelp[i].cohort%>)</td>
                       <td class="col-empty"></td>
                       <td class="col-header">Title:</td>
-                      <!-- <td class="col-data2">JavaScript -- Help with accumulator patterns</td> -->
                       <td class="col-data2"><%= offeredHelp[i].title%></td>
                     </tr>
                     <tr>
@@ -339,7 +328,6 @@
                       <td class="col-data">10/30/2017 10/31/2017</td>
                       <td class="col-empty"></td>
                       <td class="col-header">Description:</td>
-                      <!-- <td class="col-data2">Struggling with understanding and implementing accumulator patterns and iterating through arrays.</td> -->
                       <td class="col-data2"><%= offeredHelp[i].content%></td>
                     </tr>
                     <tr>
@@ -381,7 +369,6 @@
  <div class="footer-copyright">
    <div class="container center">
    © 2017 gTutor | Barbara Doring, Hassan Khan, Scott Dickscheid | All Rights Reserved
-   <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
    </div>
  </div>
 </footer>

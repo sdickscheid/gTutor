@@ -26,20 +26,16 @@
             <table class="">
               <tr>
                 <td class="col-header">Name:</td>
-                <!-- <td class="col-data">John Doe</td> -->
                 <td class="col-data"><%= post.first_name %> <%= post.last_name %></td>
                 <td class="col-empty"></td>
                 <td class="col-header">Request ID:</td>
-                <!-- <td class="col-data2">#004</td> -->
                 <td class="col-data2">#<%= post.id %></td>
               </tr>
               <tr>
                 <td class="col-header">gStatus:</td>
-                <!-- <td class="col-data">Student (g66)</td> -->
                 <td class="col-data"><%= post.type %> (<%= post.cohort %>)</td>
                 <td class="col-empty"></td>
                 <td class="col-header">Title:</td>
-                <!-- <td class="col-data2">JavaScript -- Help with accumulator patterns</td> -->
                 <td class="col-data2"><%= post.title %></td>
               </tr>
               <tr>
@@ -47,7 +43,6 @@
                 <td class="col-data">10/30/2017 10/31/2017</td>
                 <td class="col-empty"></td>
                 <td class="col-header">Description:</td>
-                <!-- <td class="col-data2">Struggling with understanding and implementing accumulator patterns and iterating through arrays.</td> -->
                 <td class="col-data2"><%= post.content %></td>
               </tr>
               <tr>
@@ -67,11 +62,9 @@
             <table class="">
               <tr>
                 <td class="col-header">Name:</td>
-                <!-- <td class="col-data">John Doe</td> -->
-                  <td class="col-data"><%= user.first_name%> <%= user.last_name%></td>
+                <td class="col-data"><%= user.first_name%> <%= user.last_name%></td>
                 <td class="col-empty"></td>
                 <td class="col-header">Email:</td>
-                <!-- <td class="col-data2">robert.kirby@helpforyou.com</td> -->
                 <td class="col-data2"><%= user.email %></td>
               </tr>
             </table>
@@ -90,7 +83,6 @@
                   <input id="request_title" type="text" class="validate" name="message" placeholder="Enter comments for your tutor">
                 </div>
               </div>
-            <!-- </form> -->
           </div>
 
           <div class="row accept-rejection">
@@ -118,7 +110,6 @@
  <div class="footer-copyright">
    <div class="container center">
    © 2017 gTutor | Barbara Doring, Hassan Khan, Scott Dickscheid | All Rights Reserved
-   <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
    </div>
  </div>
 </footer>
