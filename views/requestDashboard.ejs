@@ -292,12 +292,14 @@
 
                       <% } else if (personalPosts[i].status === "CLOSED") {
                         let helperName = helper.filter(message => message.user_id != userInfo.id)[0]%>
-                        <p>Confirmed. Helper Name: <%= helperName.first_name %> <%= helperName.last_name %></p>
-                        <p>Messages Exchanged: </p>
+                        <div class="message-container col s12 container " style="background-color:#626d76; padding-bottom:2%;">
+                        <p>Confirmed! Helper Name: <div class="white-text"><%= helperName.first_name %> <%= helperName.last_name %></div></p>
+                        <p>Messages Exchanged - </p>
                         <% for (let j = 0; j < helper.length; j++) { %>
-                          <p> <%= helper[j].first_name %>: <%= helper[j].message %></p>
-                        <% } %>
+                          <p> <%= helper[j].first_name %>:<div class="white-text"> <%= helper[j].message %></div></p>
 
+                        <% } %>
+                        </div>
                       <%}%>
                       <!-- BABS -->
                     </div>
