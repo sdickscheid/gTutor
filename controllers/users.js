@@ -87,7 +87,7 @@ module.exports = {
             req.session.user = addedUser[0].id;
             req.session.save((err) => {
               //change res.redirect(`/gTutor/${addedUser[0].id}`);
-              res.redirect(`/gTutor/posts`);
+              res.redirect(`/gTutor/login`);
             })
           })
       })
