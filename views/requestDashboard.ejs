@@ -338,8 +338,10 @@
                   <% for (let j = 0; j < sentMessages.length; j++) {
                     console.log("sentMessages", sentMessages[i])
                     if (sentMessages[j].post_id == offeredHelp[i]["posts.id"]) { %>
-                      <p><%= sentMessages[j].first_name %>: <%= sentMessages[j].message %> </p>
-                      <p>STATUS: <%= sentMessages[j].status%></p>
+                      <div class="message-container col s12 container " style="background-color:#626d76; padding-bottom:2%;">
+                      <p><%= sentMessages[j].first_name %>: <div class="white-text"><%= sentMessages[j].message %></div> </p>
+                      <p>STATUS:<div class="white-text"><%= sentMessages[j].status%></div></p>
+                      </div>
                     <% } %>
                   <% } %>
                 </div>

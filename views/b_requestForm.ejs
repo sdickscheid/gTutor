@@ -28,7 +28,7 @@
               <div id="form-top-row" class="input-field col s3">
                 <% let topics = ["Chicago", "HTML/CSS", "JavaScript", "DOM Manipulation", "jQuery/AJAX", "SQL/Postgres", "Express", "KNEX"] %>
 
-                <select name="topic">
+                <select class="white-text"name="topic">
                   <option value="<=% post.topic %>" selected> <%= post.topic %></option>
                   <!-- <option value="0" selected>Select a topic area</option> -->
                   <% for (let i = 0; i < topics.length; i++) {

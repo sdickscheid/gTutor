@@ -11,8 +11,11 @@ module.exports = {
             knex('users')
               .where('users.id', req.session.user)
               .then((loggedUser) => {
-
-                res.render('requestOffer', {post: foundPost[0], user: loggedUser[0]});
+                let currentUser = "";
+                if (req.session.user) {
+                  currentUser = req.session.user;
+                }
+                res.render('requestOffer', {post: foundPost[0], user: loggedUser[0], userInfo: currentUser});
               });
         })
         .catch((err) => {
