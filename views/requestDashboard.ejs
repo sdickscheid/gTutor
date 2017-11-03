@@ -19,7 +19,7 @@
 
       <div class="row">
         <div id="learn" class="center-align white-text">
-          <h5>Phoenix Campus</h5>
+          <h5>Phoenix Campus - <%= userName %></h5>
         </div>
       </div>
 
@@ -184,7 +184,7 @@
 
                                    if (myHelps[0]) { %>
                                      <div class="center">
-                                       <a class="btn disabled" href="#">You have offered to help - Waiting on OP's reply.</a>
+                                       <a class="btn disabled" href="#">You have offered to help.</a>
                                      </div>
                                    <% } else { %>
                                      <div class="center">
@@ -292,6 +292,7 @@
 
                       <% } else if (personalPosts[i].status === "CLOSED") {
                         let helperName = helper.filter(message => message.user_id != userInfo.id)[0]%>
+                        <%console.log("FRONT END - helperName:", userInfo) %>
                         <p>Confirmed. Helper Name: <%= helperName.first_name %> <%= helperName.last_name %></p>
                         <p>Messages Exchanged: </p>
                         <% for (let j = 0; j < helper.length; j++) { %>
