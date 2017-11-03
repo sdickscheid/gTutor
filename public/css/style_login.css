@@ -253,3 +253,8 @@ flex: 1 0 auto;
   margin: 0px 2px;
   padding: 10px;
 }
+
+.message-container{
+  border:1px solid #344A55;
+
+}

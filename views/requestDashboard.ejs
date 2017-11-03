@@ -19,7 +19,7 @@
 
       <div class="row">
         <div id="learn" class="center-align white-text">
-          <h5>Phoenix Campus</h5>
+          <h5>Phoenix Campus - <%= userName %></h5>
         </div>
       </div>
 
@@ -33,8 +33,8 @@
       <div class="row main-section">
         <div class="col s12 tab-headerrow-section">
           <ul class="tabs">
-            <li class="tab col s3 tab-header-each"><a href="#tab-createRequests">Create Requests</a></li>
-            <li class="tab col s3 tab-header-each"><a class="active" href="#tab-allRequests">All Requests</a></li>
+            <li class="tab col s3 tab-header-each"><a class="active" href="#tab-createRequests">Create Requests</a></li>
+            <li class="tab col s3 tab-header-each"><a href="#tab-allRequests">All Requests</a></li>
             <li class="tab col s3 tab-header-each"><a href="#tab-myRequests">My Requests</a></li>
             <li class="tab col s3 tab-header-each"><a href="#tab-confirmedRequests">Confirmed Requests</a></li>
           </ul>
@@ -184,7 +184,7 @@
 
                                    if (myHelps[0]) { %>
                                      <div class="center">
-                                       <a class="btn disabled" href="#">You have offered to help - Waiting on OP's reply.</a>
+                                       <a class="btn disabled" href="#">You have offered to help.</a>
                                      </div>
                                    <% } else { %>
                                      <div class="center">
@@ -197,13 +197,12 @@
                                    </div>
                                  <% } %>
                                <% } %>
+                               </div>
                           <% } %>
-                        </div>
+
                          <% } %>
                           <% if (!anyPosts) { %>
-
-                             <p>No posts yet :-(</p>
-
+                             <p>No posts yet:-(</p>
                           <% } %>
                       <% } else { %>
                           <div id="tab2-content" class="row">
@@ -278,12 +277,14 @@
                         <% for (let j = 0; j < messages.length; j++) {
                           if (messages[j].post_id === personalPosts[i]["posts.id"]) { %>
                             <% if (messages[j].status != "REJECTED") { %>
-                              <p>FROM: <%= messages[j].first_name %> <%= messages[j].last_name %></p>
-                              <p>MESSAGE: <%= messages[j].message %> </p>
-                              <p>STATUS: <%= messages[j].status %> </p>
+                              <div class="message-container col s12 container " style="background-color:#626d76; padding-bottom:2%;">
+                              <p>FROM:<div class="white-text"><%= messages[j].first_name %> <%= messages[j].last_name %></div></p>
+                              <p>MESSAGE:<div class="white-text"> <%= messages[j].message %></div></p>
+                              <p>STATUS:<div class="white-text">  <%= messages[j].status %></div></p>
                               <% console.log("messages[j]", messages[j]) %>
                               <a class="btn" href="/gTutor/posts/<%=messages[j].helper_id%>/accept">ACCEPT</a>
                               <a class="btn" href="/gTutor/posts/<%=messages[j].helper_id%>/reject">REJECT</a>
+                              </div>
                             <% } %>
 
                           <% }
@@ -291,12 +292,14 @@
 
                       <% } else if (personalPosts[i].status === "CLOSED") {
                         let helperName = helper.filter(message => message.user_id != userInfo.id)[0]%>
-                        <p>Confirmed. Helper Name: <%= helperName.first_name %> <%= helperName.last_name %></p>
-                        <p>Messages Exchanged: </p>
+                        <div class="message-container col s12 container " style="background-color:#626d76; padding-bottom:2%;">
+                        <p>Confirmed! Helper Name: <div class="white-text"><%= helperName.first_name %> <%= helperName.last_name %></div></p>
+                        <p>Messages Exchanged - </p>
                         <% for (let j = 0; j < helper.length; j++) { %>
-                          <p> <%= helper[j].first_name %>: <%= helper[j].message %></p>
-                        <% } %>
+                          <p> <%= helper[j].first_name %>:<div class="white-text"> <%= helper[j].message %></div></p>
 
+                        <% } %>
+                        </div>
                       <%}%>
                       <!-- BABS -->
                     </div>
@@ -372,8 +375,6 @@
 
 
 
-
-
     <!-- END MAIN PAGE container -->
     </div>
   </div>
@@ -404,6 +405,7 @@
     <script type="text/javascript">
     $(document).ready(function() {
     $('select').material_select();
+    $('.modal').modal();
   });
     </script>
   </body>

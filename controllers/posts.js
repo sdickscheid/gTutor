@@ -50,7 +50,7 @@ module.exports = {
 
                         helperInfo = allMessages.filter(message => message.helper_id === acceptedHelp[0].id)
 
-                        console.log("helperInfo", helperInfo);
+                        console.log("helperInfo i see this", helperInfo);
                       }
 
                       let messagesSent = [];
