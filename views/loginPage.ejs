@@ -14,7 +14,14 @@
         </div>
       </div>
 
-      <%= message %>
+      <% if (message) { %>
+        <div class="invalid-login">
+          <%= message %>
+        </div>
+      <% } %>
+
+
+
       <div class="row">
         <div class="form-container">
           <form class="col s4 offset-s4 form z-depth-2" action="/gTutor/login" method="post">
