@@ -6,7 +6,7 @@ module.exports = {
         .where('users.id', req.session.user)
         .then((user) => {
           knex('posts')
-            .select('posts.id AS posts.id', 'user_id', 'posts.topic', 'posts.title', 'posts.content', 'posts.status', 'posts.created_at', 'users.first_name', 'users.last_name', 'users.email', 'users.campus', 'users.cohort', 'users.type')
+            .select('posts.id AS posts.id', 'user_id', 'posts.topic', 'posts.title', 'posts.content', 'posts.status', 'posts.created_at', 'posts.day1', 'posts.day2', 'posts.time_start', 'posts.time_end',  'users.first_name', 'users.last_name', 'users.email', 'users.campus', 'users.cohort', 'users.type')
             .join('users', 'users.id', 'posts.user_id')
             .orderBy('posts.id', 'DESC')
             .then((postsList) => {
@@ -83,6 +83,7 @@ module.exports = {
   },
 
   createOne: function(req, res) {
+    console.log('req.body:', req.body)
     knex('posts')
       .then((allPosts) => {
         let userHasPost = allPosts.filter(post => post.user_id == req.session.user);
@@ -94,7 +95,11 @@ module.exports = {
               user_id: Number(req.session.user),
               topic: req.body.topic,
               title: req.body.title,
-              content: req.body.content
+              content: req.body.content,
+              day1: req.body.day1,
+              day2: req.body.day2,
+              time_start: req.body.time_start,
+              time_end: req.body.time_end
             }
             knex('posts')
               .insert(newPost, '*')

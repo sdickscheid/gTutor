@@ -76,20 +76,20 @@
 
                 <div class="row">
                   <div class="input-field col s3">
-                    <input id="request_date1" type="text" class="validate datepicker" name="request_date1" placeholder="Select Date">
-                    <label for="request_date1">1st Date</label>
+                    <input id="request_date1" type="text" class="validate datepicker" name="day1" placeholder="Select Date">
+                    <label for="day1">1st Date</label>
                   </div>
                   <div class="input-field col s3">
-                    <input id="request_date2" type="text" class="validate datepicker" name="request_date2" placeholder="Select Date">
-                    <label for="request_date2"> 2nd Date</label>
+                    <input id="request_date2" type="text" class="validate datepicker" name="day2" placeholder="Select Date">
+                    <label for="day2"> 2nd Date</label>
                   </div>
                   <div class="input-field col s3">
-                    <input id="request_time_start" type="text" class="validate timepicker" name="request_time_start" placeholder="Select Start Time">
-                    <label for="request_time_start">Timeframe Start</label>
+                    <input id="request_time_start" type="text" class="validate timepicker" name="time_start" placeholder="Select Start Time">
+                    <label for="time_start">Timeframe Start</label>
                   </div>
                   <div class="input-field col s3">
-                    <input id="request_time_end" type="text" class="validate timepicker" name="request_time_end" placeholder="Select End Time">
-                    <label for="request_time_end">Timeframe End</label>
+                    <input id="request_time_end" type="text" class="validate timepicker" name="time_end" placeholder="Select End Time">
+                    <label for="time_end">Timeframe End</label>
                   </div>
                 </div>
 
@@ -138,14 +138,14 @@
                                    </tr>
                                    <tr>
                                      <td  class="col-header">Availability:</td>
-                                     <td class="col-data">10/30/2017  10/31/2017</td>
+                                     <td class="col-data"><%= posts[i].day1%>, <br>  <%= posts[i].day2%></td>
                                      <td class="col-empty"></td>
                                      <td class="col-header">Title:</td>
                                      <td class="col-data2"><%= posts[i].title %></td>
                                    </tr>
                                    <tr>
                                      <td class="col-header">Timeframe:</td>
-                                     <td class="col-data">4:15pm -  8:00pm</td>
+                                     <td class="col-data"><%= posts[i].time_start %> -  <%= posts[i].time_end %></td>
                                      <td class="col-empty"></td>
                                      <td class="col-header">Description:</td>
                                      <td class="col-data2"><%= posts[i].content %></td>
@@ -156,6 +156,7 @@
                                    <a id="edit-btn" class="btn" href="/gTutor/posts/edit/<%= posts[i]["posts.id"] %>">EDIT REQUEST</a>
                                    <a id="delete-btn" class="btn" href="/gTutor/posts/delete/<%= posts[i]["posts.id"] %>">DELETE REQUEST</a>
                                  </div>
+                                 <hr>
 
                                <% } else { %>
                                  <% if (posts[i].status === "PENDING") {
@@ -173,12 +174,12 @@
                                      </div>
                                    <% } else { %>
                                      <div class="center">
-                                       <a class="btn" href="/gTutor/posts/help/<%=posts[i]["posts.id"]%>">Offer To Help</a>
+                                       <a class="btn offer-help-btn" href="/gTutor/posts/help/<%=posts[i]["posts.id"]%>">Offer To Help</a>
                                      </div>
                                    <% } %>
                                  <% } else { %>
                                    <div class="center">
-                                     <a class="btn" href="/gTutor/posts/help/<%=posts[i]["posts.id"]%>">Offer To Help</a>
+                                     <a class="btn offer-help-btn" href="/gTutor/posts/help/<%=posts[i]["posts.id"]%>">Offer To Help</a>
                                    </div>
                                  <% } %>
                                <% } %>
@@ -416,7 +417,7 @@
     $('.timepicker').pickatime({
       default: 'now', // Set default time: 'now', '1:30AM', '16:30'
       fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
-      twelvehour: false, // Use AM/PM or 24-hour format
+      twelvehour: true, // Use AM/PM or 24-hour format
       donetext: 'OK', // text for done-button
       cleartext: 'Clear', // text for clear-button
       canceltext: 'Cancel', // Text for cancel-button
