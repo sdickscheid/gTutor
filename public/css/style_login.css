@@ -326,3 +326,16 @@ flex: 1 0 auto;
 .tutor-offer-status-rejected {
   color: #e9933e;
 }
+
+#edit-btn {
+  margin-top: 25px;
+  margin-right: 25px;
+  width: 250px;
+  background-color: #e9933e;
+}
+#delete-btn {
+  margin-top: 25px;
+  margin-left: 25px;
+  width: 250px;
+  background-color: #5d2740;
+}
