@@ -239,14 +239,14 @@
                         </tr>
                         <tr>
                           <td class="col-header">Availability:</td>
-                          <td class="col-data">10/30/2017 10/31/2017</td>
+                          <td class="col-data"><%= posts[i].day1%>, <br>  <%= posts[i].day2%></td></td>
                           <td class="col-empty"></td>
                           <td class="col-header">Description:</td>
                           <td class="col-data2"><%= personalPosts[i].content %></td>
                         </tr>
                         <tr>
                           <td class="col-header">Timeframe:</td>
-                          <td class="col-data">4:15pm - 8:00pm</td>
+                          <td class="col-data"><%= posts[i].time_start %> -  <%= posts[i].time_end %></td>
                           <td class="col-empty"></td>
                           <td class="col-header">Posted On:</td>
                           <td class="col-data2"><%= date[0] %> <%= date[1] %> <%= date[2] %> <%= date[3] %></td>
@@ -332,14 +332,14 @@
                     </tr>
                     <tr>
                       <td class="col-header">Availability:</td>
-                      <td class="col-data">10/30/2017 10/31/2017</td>
+                      <td class="col-data"><%= offeredHelp[i].day1%>, <br> <%= offeredHelp[i].day2%></td>
                       <td class="col-empty"></td>
                       <td class="col-header">Description:</td>
                       <td class="col-data2"><%= offeredHelp[i].content%></td>
                     </tr>
                     <tr>
                       <td class="col-header">Timeframe:</td>
-                      <td class="col-data">4:15pm - 8:00pm</td>
+                      <td class="col-data"><%= offeredHelp[i].time_start %> -  <%= offeredHelp[i].time_end %></td>
                     </tr>
                   </table>
                   <% for (let j = 0; j < sentMessages.length; j++) {
