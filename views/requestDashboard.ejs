@@ -197,13 +197,12 @@
                                    </div>
                                  <% } %>
                                <% } %>
+                               </div>
                           <% } %>
-                        </div>
+
                          <% } %>
                           <% if (!anyPosts) { %>
-
-                             <p>No posts yet :-(</p>
-
+                             <p>No posts yet:-(</p>
                           <% } %>
                       <% } else { %>
                           <div id="tab2-content" class="row">
@@ -374,8 +373,6 @@
 
 
 
-
-
     <!-- END MAIN PAGE container -->
     </div>
   </div>
@@ -406,6 +403,7 @@
     <script type="text/javascript">
     $(document).ready(function() {
     $('select').material_select();
+    $('.modal').modal();
   });
     </script>
   </body>
