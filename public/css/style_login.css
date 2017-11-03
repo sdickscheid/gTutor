@@ -330,12 +330,19 @@ flex: 1 0 auto;
 #edit-btn {
   margin-top: 25px;
   margin-right: 25px;
+  margin-bottom: 15px;
   width: 250px;
   background-color: #e9933e;
 }
 #delete-btn {
   margin-top: 25px;
   margin-left: 25px;
+  margin-bottom: 15px;
   width: 250px;
   background-color: #5d2740;
+}
+
+.offer-help-btn {
+  margin-top: 25px;
+  width: 250px;
 }
