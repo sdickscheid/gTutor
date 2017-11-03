@@ -52,7 +52,7 @@
                   </div>
 
                   <div id="form-top-row" class="input-field col s3">
-                    <select name="topic">
+                    <select class="white-text" name="topic">
                       <option value="0" selected>Select a topic area</option>
                       <option value="Chicago">Chicago</option>
                       <option value="HTML/CSS">HTML/CSS</option>
@@ -280,10 +280,13 @@
                       <% } else if (personalPosts[i].status === "CLOSED") {
                         let helperName = helper.filter(message => message.user_id != userInfo.id)[0]%>
                         <div class="message-container col s12 container " style="background-color:#626d76; padding-bottom:2%;">
-                        <p>Confirmed! Helper Name: <div class="white-text"><%= helperName.first_name %> <%= helperName.last_name %></div></p>
-                        <p>Messages Exchanged - </p>
+                          <p class="center">Confirmed!</p>
+                          <p>You have confirmed your tutoring session with <%= helperName.first_name %> <%= helperName.last_name %>.</p>
+                        <!-- <p> Helper Name: <div class="white-text"><%= helperName.first_name %> <%= helperName.last_name %></div></p> -->
+                        <p>Comments</p>
                         <% for (let j = 0; j < helper.length; j++) { %>
-                          <p> <%= helper[j].first_name %>:<div class="white-text"> <%= helper[j].message %></div></p>
+                          <p> Tutor: <%= helper[j].first_name %> </p>
+                          <p>Message: <%= helper[j].message %></p>
 
                         <% } %>
                         </div>
