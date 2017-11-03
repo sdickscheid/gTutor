@@ -6,7 +6,8 @@
     <script src="https://use.fontawesome.com/71f27b38fa.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style_login.css">
+    <link rel="stylesheet" href="/css/style_login.css">
+    <link rel="stylesheet" href="/css/style_requestOffer.css">
   </head>
 
   <body>
@@ -38,28 +39,33 @@
             <h4 class="request-offer-headers">Request Details</h4>
           </div>
 
-          <div class="row">
-            <table id="request-offer-top">
+          <div id="request-offer-top" class="row">
+            <table class="">
               <tr>
                 <td class="col-header">Name:</td>
-                <td class="col-data">John Doe</td>
+                <!-- <td class="col-data">John Doe</td> -->
+                <td class="col-data"><%= post.first_name %> <%= post.last_name %></td>
                 <td class="col-empty"></td>
                 <td class="col-header">Request ID:</td>
-                <td class="col-data2">#004</td>
+                <!-- <td class="col-data2">#004</td> -->
+                <td class="col-data2">#<%= post.id %></td>
               </tr>
               <tr>
                 <td class="col-header">gStatus:</td>
-                <td class="col-data">Student (g66)</td>
+                <!-- <td class="col-data">Student (g66)</td> -->
+                <td class="col-data"><%= post.type %> (<%= post.cohort %>)</td>
                 <td class="col-empty"></td>
                 <td class="col-header">Title:</td>
-                <td class="col-data2">JavaScript -- Help with accumulator patterns</td>
+                <!-- <td class="col-data2">JavaScript -- Help with accumulator patterns</td> -->
+                <td class="col-data2"><%= post.title %></td>
               </tr>
               <tr>
                 <td class="col-header">Availability:</td>
                 <td class="col-data">10/30/2017 10/31/2017</td>
                 <td class="col-empty"></td>
                 <td class="col-header">Description:</td>
-                <td class="col-data2">Struggling with understanding and implementing accumulator patterns and iterating through arrays.</td>
+                <!-- <td class="col-data2">Struggling with understanding and implementing accumulator patterns and iterating through arrays.</td> -->
+                <td class="col-data2"><%= post.content %></td>
               </tr>
               <tr>
                 <td class="col-header">Timeframe:</td>
@@ -68,46 +74,48 @@
             </table>
           </div>
 
-          <hr>
+          <hr class="z-depth-5">
 
           <div class="row">
             <h4 class="request-offer-headers">Tutor Details</h4>
           </div>
 
-          <div class="row">
-            <table id="request-offer-mid">
+          <div class="row" id="request-offer-mid">
+            <table class="">
               <tr>
                 <td class="col-header">Name:</td>
-                <td class="col-data">John Doe</td>
+                <!-- <td class="col-data">John Doe</td> -->
+                  <td class="col-data"><%= user.first_name%> <%= user.last_name%></td>
                 <td class="col-empty"></td>
                 <td class="col-header">Email:</td>
-                <td class="col-data2">robert.kirby@helpforyou.com</td>
+                <!-- <td class="col-data2">robert.kirby@helpforyou.com</td> -->
+                <td class="col-data2"><%= user.email %></td>
               </tr>
             </table>
           </div>
 
-          <hr>
+          <hr class="z-depth-5">
 
           <div class="row">
             <h4 class="request-offer-headers">Additional Comments</h4>
           </div>
 
           <div class="row add-comments-div">
-            <form id="request-offer-bottom" class="col s12 request-offer-form" action="#" method="">
+            <form id="request-offer-bottom" class="col s12 request-offer-form" action="/gTutor/posts/help/<%=post.id%>" method="post">
               <div class="row">
                 <div class="input-field col s12">
-                  <input id="request_title" type="text" class="validate" name="request_title" placeholder="Enter comments for your tutor">
+                  <input id="request_title" type="text" class="validate" name="message" placeholder="Enter comments for your tutor">
                 </div>
               </div>
-            </form>
+            <!-- </form> -->
           </div>
 
           <div class="row accept-rejection">
-            <a id="btn-accept-offer" class="waves-effect waves-light btn col s6" type="submit" value="Login">Confirm Tutoring Session</a>
-            <a id="btn-reject-offer" class="waves-effect waves-light btn col s6 red lighten-2" type="submit" value="Login">Reject Tutoring Session</a>
+            <button id="btn-accept-offer" class="waves-effect waves-light btn col s6" type="submit" value="Login">Confirm Tutoring Session</button>
+            <a href="/gTutor/posts" id="btn-reject-offer" class="waves-effect waves-light btn col s6 red lighten-2" type="submit" value="Login">Reject Tutoring Session</a>
           </div>
 
-
+      </form>
       </div>
     </div>
 

@@ -40,38 +40,44 @@
     </form>
 
     <h4>All Posts</h4>
-    <% if (posts[0]) { %>
+    <% let anyPosts = false;
+      if (posts[0]) { %>
       <% for (let i = 0; i < posts.length; i++) { %>
+        <% if (posts[i].status !== "CLOSED") {
+            anyPosts = true; %>
+          <p>REQUESTED BY: <%= posts[i].first_name %> <%= posts[i].last_name %></p>
+          <p>TOPIC: <%= posts[i].topic %></p>
+          <p>TITLE: <%= posts[i].title %></p>
+          <p>CONTENT: <%= posts[i].content %></p>
 
-        <p>REQUESTED BY: <%= posts[i].first_name %> <%= posts[i].last_name %></p>
-        <p>TOPIC: <%= posts[i].topic %></p>
-        <p>TITLE: <%= posts[i].title %></p>
-        <p>CONTENT: <%= posts[i].content %></p>
-
-        <% if (posts[i].user_id == loggedUserID) { %>
-          <a class="btn orange" href="/gTutor/posts/edit/<%= posts[i]["posts.id"] %>">EDIT</a>
-          <a class="btn red" href="/gTutor/posts/delete/<%= posts[i]["posts.id"] %>">DELETE</a>
-        <% } else { %>
-          <% if (posts[i].status === "PENDING") {
-               let myHelps = helps.filter((post) => {
-                 if (post.post_id === posts[i]["posts.id"]) {
-                   if (post.user_id == loggedUserID) {
-                     return post;
-                   }
-                 }
-               });
-
-            if (myHelps[0]) { %>
-              <a class="btn disabled" href="#">You have offered to help - Waiting on OP's reply.</a>
-            <% } else { %>
-              <!-- <a class="btn" href="/gTutor/<%=loggedUserID%>/help/<%=posts[i].id%>">Offer To Help</a> -->
-              <a class="btn" href="/gTutor/posts/help/<%=posts[i]["posts.id"]%>">Offer To Help</a>
-            <% } %>
+          <% if (posts[i].user_id == loggedUserID) { %>
+            <a class="btn orange" href="/gTutor/posts/edit/<%= posts[i]["posts.id"] %>">EDIT</a>
+            <a class="btn red" href="/gTutor/posts/delete/<%= posts[i]["posts.id"] %>">DELETE</a>
           <% } else { %>
-            <a class="button" href="/gTutor/posts/help/<%=posts[i]["posts.id"]%>">Offer To Help</a>
+            <% if (posts[i].status === "PENDING") {
+                 let myHelps = helps.filter((post) => {
+                   if (post.post_id === posts[i]["posts.id"]) {
+                     if (post.user_id == loggedUserID) {
+                       return post;
+                     }
+                   }
+                 });
+
+              if (myHelps[0]) { %>
+                <a class="btn disabled" href="#">You have offered to help - Waiting on OP's reply.</a>
+              <% } else { %>
+                <a class="btn" href="/gTutor/posts/help/<%=posts[i]["posts.id"]%>">Offer To Help</a>
+              <% } %>
+            <% } else { %>
+              <a class="button" href="/gTutor/posts/help/<%=posts[i]["posts.id"]%>">Offer To Help</a>
+            <% } %>
           <% } %>
         <% } %>
-      <% } %>
+        <% }
+          if (!anyPosts) { %>
+              <p>No posts yet :-(</p>
+          <% } %>
+
     <% } else { %>
       <p>No posts yet :-(</p>
     <% } %>
