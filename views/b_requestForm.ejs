@@ -21,7 +21,7 @@
 
             <div class="row">
               <div id="form-top-row" class="input-field col s9">
-                <input id="request_title" type="text" class="validate" name="title" value="<%= post.title %>">
+                <input id="request_title" type="text" class="validate white-text" name="title" value="<%= post.title %>">
                 <label for="request_title">Title</label>
               </div>
 
@@ -29,7 +29,7 @@
                 <% let topics = ["Chicago", "HTML/CSS", "JavaScript", "DOM Manipulation", "jQuery/AJAX", "SQL/Postgres", "Express", "KNEX"] %>
 
                 <select class="white-text"name="topic">
-                  <option value="<=% post.topic %>" selected> <%= post.topic %></option>
+                  <option value="<%= post.topic %>" selected> <%= post.topic %></option>
                   <!-- <option value="0" selected>Select a topic area</option> -->
                   <% for (let i = 0; i < topics.length; i++) {
                     if (post.topic !== topics[i]) { %>
@@ -52,8 +52,27 @@
 
             <div class="row">
               <div class="input-field col s12">
-                <input id="request_description" type="text" class="validate" name="content" value="<%= post.content %>">
+                <input id="request_description" type="text" class="validate white-text" name="content" value="<%= post.content %>">
                 <label for="request_description">Description</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s3">
+                <input id="request_date1" type="text" class="validate datepicker white-text" name="day1" value="<%= post.day1 %>">
+                <label for="day1">1st Date</label>
+              </div>
+              <div class="input-field col s3">
+                <input id="request_date2" type="text" class="validate datepicker white-text" name="day2" value="<%= post.day2 %>">
+                <label for="day2"> 2nd Date</label>
+              </div>
+              <div class="input-field col s3">
+                <input id="request_time_start" type="text" class="validate timepicker white-text" name="time_start" value="<%= post.time_start %>">
+                <label for="time_start">Timeframe Start</label>
+              </div>
+              <div class="input-field col s3">
+                <input id="request_time_end" type="text" class="validate timepicker white-text" name="time_end" value="<%= post.time_end %>">
+                <label for="time_end">Timeframe End</label>
               </div>
             </div>
 

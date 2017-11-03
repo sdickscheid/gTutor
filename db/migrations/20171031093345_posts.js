@@ -13,6 +13,10 @@ exports.up = function(knex, Promise) {
     table.string('status')
       .notNullable()
       .defaultTo('OPEN');
+    table.string('day1');
+    table.string('day2');
+    table.string('time_start');
+    table.string('time_end');
     table.timestamps(true, true);
   })
 };
