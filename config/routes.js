@@ -10,6 +10,8 @@ module.exports = function(app){
 
   app.get('/gTutor', users.index);
 
+  app.get('/gTutor/about', users.about);
+
   app.get('/gTutor/login', users.check);
 
   app.post('/gTutor/login', users.login);
@@ -35,6 +37,8 @@ module.exports = function(app){
   app.post('/gTutor/posts/help/:postID', helps.createOne);
 
   app.get('/gTutor/posts/:helpID/:action', helps.action);
+
+  app.get('/gTutor/logout', users.logout);
 
   //add fallback
 
