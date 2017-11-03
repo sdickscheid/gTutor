@@ -99,7 +99,6 @@ module.exports = {
             knex('posts')
               .insert(newPost, '*')
               .then((post) => {
-                console.log(post);
                 res.redirect(`/gTutor/posts`)
               })
               .catch((err) => {
@@ -113,7 +112,11 @@ module.exports = {
     knex('posts')
       .where('id', req.params.postID)
       .then((result) => {
-        res.render('b_requestForm', {post: result[0]});
+        let currentUser = "";
+        if (req.session.user) {
+          currentUser = req.session.user;
+        }
+        res.render('b_requestForm', {post: result[0], userInfo: currentUser});
       })
       .catch((err) => {
         console.log(err);
