@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" viewBox="39.5 -664 259.03993 104.75" width="259.03993pt" height="104.75pt" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" viewBox="38.5 -677 263.53993 104.5" width="263.53993pt" height="104.5pt" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <metadata> Produced by OmniGraffle 7.5 
-    <dc:date>2017-11-02 16:44:15 +0000</dc:date>
+    <dc:date>2017-11-02 20:21:41 +0000</dc:date>
   </metadata>
   <defs>
-    <font-face font-family="Avenir Next Condensed" font-size="31" panose-1="2 11 5 6 2 2 2 2 2 4" units-per-em="1000" underline-position="-75" underline-thickness="50" slope="0" x-height="496" cap-height="708" ascent="1e3" descent="-365.9973" font-weight="500" font-stretch="condensed">
+    <font-face font-family="Avenir Next Condensed" font-size="35" panose-1="2 11 5 6 2 2 2 2 2 4" units-per-em="1000" underline-position="-75" underline-thickness="50" slope="0" x-height="496" cap-height="708" ascent="1e3" descent="-365.9973" font-weight="500" font-stretch="condensed">
       <font-face-src>
         <font-face-name name="AvenirNextCondensed-Regular"/>
       </font-face-src>
@@ -15,24 +15,29 @@
         <font-face-name name="AvenirNextCondensed-Regular"/>
       </font-face-src>
     </font-face>
+    <font-face font-family="Avenir Next Condensed" font-size="26" panose-1="2 11 5 6 2 2 2 2 2 4" units-per-em="1000" underline-position="-75" underline-thickness="50" slope="0" x-height="496" cap-height="708" ascent="1e3" descent="-365.9973" font-weight="500" font-stretch="condensed">
+      <font-face-src>
+        <font-face-name name="AvenirNextCondensed-Regular"/>
+      </font-face-src>
+    </font-face>
   </defs>
   <g stroke="none" stroke-opacity="1" stroke-dasharray="none" fill="none" fill-opacity="1">
     <title>gTutor Logo</title>
-    <rect fill="white" width="259.03993" height="104.75"/>
+    <rect fill="white" width="263.53993" height="104.5"/>
     <g>
       <title>Layer 1</title>
-      <text transform="translate(53.644963 -606.75)" fill="white">
-        <tspan font-family="Avenir Next Condensed" font-size="31" font-weight="500" font-stretch="condensed" fill="white" x="81.182" y="31" textLength="25.048">gT</tspan>
-        <tspan font-family="Avenir Next Condensed" font-size="31" font-weight="500" font-stretch="condensed" fill="white" x="105.114" y="31" textLength="44.454">utor</tspan>
+      <text transform="translate(43.5 -625.5)" fill="white">
+        <tspan font-family="Avenir Next Condensed" font-size="35" font-weight="500" font-stretch="condensed" fill="white" x="85.91496" y="35" textLength="28.28">gT</tspan>
+        <tspan font-family="Avenir Next Condensed" font-size="35" font-weight="500" font-stretch="condensed" fill="white" x="112.93496" y="35" textLength="50.19">utor</tspan>
       </text>
-      <text transform="translate(44.5 -658.5)" fill="#ff9300">
+      <text transform="translate(48 -671.5)" fill="#ff9300">
         <tspan font-family="Avenir Next Condensed" font-size="42" font-weight="500" font-stretch="condensed" fill="#ff9300" x="54.904963" y="42" textLength="139.23">galvanize</tspan>
       </text>
-      <text transform="translate(67.70746 -648)" fill="#00b8d1">
-        <tspan font-family="Avenir Next Condensed" font-size="31" font-weight="500" font-stretch="condensed" fill="#00b8d1" x="3.677" y="31" textLength="20.646">&lt;</tspan>
+      <text transform="translate(77 -657.5)" fill="#00b8d1">
+        <tspan font-family="Avenir Next Condensed" font-size="26" font-weight="500" font-stretch="condensed" fill="#00b8d1" x="2.342" y="26" textLength="17.316">&lt;</tspan>
       </text>
-      <text transform="translate(228.83246 -648)" fill="#00b8d1">
-        <tspan font-family="Avenir Next Condensed" font-size="31" font-weight="500" font-stretch="condensed" fill="#00b8d1" x="13.49" y="31" textLength="28.52">/&gt;</tspan>
+      <text transform="translate(241 -657.5)" fill="#00b8d1">
+        <tspan font-family="Avenir Next Condensed" font-size="26" font-weight="500" font-stretch="condensed" fill="#00b8d1" x="5.769518" y="26" textLength="17.316">&gt;</tspan>
       </text>
     </g>
   </g>
