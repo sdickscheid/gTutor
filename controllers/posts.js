@@ -40,6 +40,19 @@ module.exports = {
 
                       console.log('messagesReceived', messagesReceived);
 
+                      let helpsReceived = userPosts.filter(posts => posts.status === "CLOSED");
+                      let helperInfo = "";
+
+                      console.log("helpsReceived", helpsReceived);
+
+                      if (helpsReceived[0]) {
+                        let acceptedHelp = allHelps.filter((helpers) => helpers.status === "ACCEPTED")
+
+                        helperInfo = allMessages.filter(message => message.helper_id === acceptedHelp[0].id)
+
+                        console.log("helperInfo", helperInfo);
+                      }
+
                       let messagesSent = [];
                       let postsOfferedHelp = [];
 
@@ -58,7 +71,8 @@ module.exports = {
 
                       console.log('messagesSent', messagesSent);
 
-                      res.render('b_newPostForm', {posts: postsList, userName: user[0].first_name, personalPosts: userPosts, helps: allHelps, loggedUserID: req.session.user, messages: messagesReceived, offeredHelp: postsOfferedHelp, sentMessages: messagesSent});
+                      // res.render('b_newPostForm', {posts: postsList, userName: user[0].first_name, personalPosts: userPosts, helps: allHelps, loggedUserID: req.session.user, messages: messagesReceived, offeredHelp: postsOfferedHelp, sentMessages: messagesSent});
+                      res.render('requestDashboard', {posts: postsList, userName: user[0].first_name, personalPosts: userPosts, helps: allHelps, loggedUserID: req.session.user, messages: messagesReceived, offeredHelp: postsOfferedHelp, sentMessages: messagesSent, helper: helperInfo, userInfo: user[0]});
                     })
                 })
             })

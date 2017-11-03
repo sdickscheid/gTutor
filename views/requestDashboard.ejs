@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>gTutor - Dashboard</title>
+    <script src="https://use.fontawesome.com/71f27b38fa.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style_login.css">
+  </head>
+
+  <body>
+    <nav class="nav-wrapper">
+        <div id="nav-img" class="brand-logo center"></div>
+    </nav>
+
+    <!-- MAIN PAGE CONTAINER -->
+    <div class="container">
+
+      <div class="row">
+        <div id="learn" class="center-align white-text">
+          <h5>Phoenix Campus</h5>
+        </div>
+      </div>
+
+      <div class="row">
+        <div id="body-heading" class="center-align">
+          <h3>Request Dashboard</h3>
+        </div>
+      </div>
+
+      <!-- TAB INFRASTRUCTURE -->
+      <div class="row main-section">
+        <div class="col s12 tab-headerrow-section">
+          <ul class="tabs">
+            <li class="tab col s3 tab-header-each"><a href="#tab-createRequests">Create Requests</a></li>
+            <li class="tab col s3 tab-header-each"><a class="active" href="#tab-allRequests">All Requests</a></li>
+            <li class="tab col s3 tab-header-each"><a href="#tab-myRequests">My Requests</a></li>
+            <li class="tab col s3 tab-header-each"><a href="#tab-confirmedRequests">Confirmed Requests</a></li>
+          </ul>
+        </div>
+
+        <!-- START TAB 1 DATA -->
+        <div id="tab-createRequests" class="col s12">
+          <div class="row">
+            <div id="tab-header" class="center-align">
+              <h3>Code Assistance Request Form</h3>
+            </div>
+          </div>
+
+          <div class="row">
+            <div id="tab-subheader" class="center-align white-text">
+              <h5>Create and submit your help request below</h5>
+            </div>
+          </div>
+
+          <div class="row">
+
+              <form class="col s8 offset-s2 form z-depth-2" action="/gTutor/posts" method="post">
+
+                <div class="row">
+                  <div id="form-top-row" class="input-field col s9">
+                    <input id="request_title" type="text" class="validate" name="title" placeholder="Title">
+                    <label for="request_title">Title</label>
+                  </div>
+
+                  <div id="form-top-row" class="input-field col s3">
+                    <select name="topic">
+                      <option value="0" selected>Select a topic area</option>
+                      <option value="Chicago">Chicago</option>
+                      <option value="HTML/CSS">HTML/CSS</option>
+                      <option value="JavaScript">JavaScript</option>
+                      <option value="DOM Manipulation">DOM Manipulation</option>
+                      <option value="jQuery/AJAX">jQuery/AJAX</option>
+                      <option value="SQL/Postgres">SQL/Postgres</option>
+                      <option value="Express">Express</option>
+                      <option value="KNEX">KNEX</option>
+                    </select>
+                    <label>Topic</label>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="request_description" type="text" class="validate" name="content" placeholder="Provide a brief description of your challenge">
+                    <label for="request_description">Description</label>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s3">
+                    <input id="request_date1" type="text" class="validate datepicker" name="request_date1" placeholder="Select Date">
+                    <label for="request_date1">1st Date</label>
+                  </div>
+                  <div class="input-field col s3">
+                    <input id="request_date2" type="text" class="validate datepicker" name="request_date2" placeholder="Select Date">
+                    <label for="request_date2"> 2nd Date</label>
+                  </div>
+                  <div class="input-field col s3">
+                    <input id="request_time_start" type="text" class="validate timepicker" name="request_time_start" placeholder="Select Start Time">
+                    <label for="request_time_start">Timeframe Start</label>
+                  </div>
+                  <div class="input-field col s3">
+                    <input id="request_time_end" type="text" class="validate timepicker" name="request_time_end" placeholder="Select End Time">
+                    <label for="request_time_end">Timeframe End</label>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <button id="btn-registration" class="waves-effect waves-light btn col s12" type="submit" value="Login">Submit Request</button>
+                </div>
+
+              </form>
+
+          </div>
+
+        <!-- END TAB 1 DATA -->
+        </div>
+
+        <!-- ******** START TAB 2 DATA - ALL REQUESTS ******** -->
+        <div id="tab-allRequests" class="col s12 z-depth-2">
+              <div class="row">
+                <div id="tab-content-heading" class="center-align">
+                  <h3>All Help Requests</h3>
+                </div>
+              </div>
+
+                  <div id="tab2-container" class="container z-depth-2">
+                    <% let anyPosts = false;
+                       if (posts[0]) { %>
+                        <% for (let i = 0; i < posts.length; i++) { %>
+                          <% if (posts[i].status !== "CLOSED") {
+                              anyPosts = true;
+                              console.log("MY STATUS", posts[i].status === 'CLOSED')
+                             %>
+                             <div id="tab2-content" class="row">
+                               <table id="request-offer-top" class="tab2-content">
+                                   <tr>
+                                     <td class="col-header">Name:</td>
+                                     <!-- <td class="col-data">John Doe</td> -->
+                                     <td class="col-data"><%= posts[i].first_name %> <%= posts[i].last_name %></td>
+                                     <td class="col-empty"></td>
+                                     <td class="col-header">Request ID:</td>
+                                     <!-- <td class="col-data2">#004</td> -->
+                                     <td class="col-data2">#<%= posts[i]["posts.id"] %></td>
+                                   </tr>
+                                   <tr>
+                                     <td class="col-header">gStatus:</td>
+                                     <!-- <td class="col-data">Student (g66)</td> -->
+                                     <td class="col-data"><%= posts[i].type %> (<%= posts[i].cohort %>)</td>
+                                     <td class="col-empty"></td>
+                                     <td class="col-header">Title:</td>
+                                     <!-- <td class="col-data2">JavaScript --  Help with accumulator patterns</td> -->
+                                     <td class="col-data2"><%= posts[i].title %></td>
+                                   </tr>
+                                   <tr>
+                                     <td  class="col-header">Availability:</td>
+                                     <td class="col-data">10/30/2017  10/31/2017</td>
+                                     <td class="col-empty"></td>
+                                     <td class="col-header">Description:</td>
+                                     <!-- <td class="col-data2">Struggling with  understanding and implementing accumulator patterns and iterating through arrays.</td> -->
+                                     <td class="col-data2"><%= posts[i].content %></td>
+                                   </tr>
+                                   <tr>
+                                     <td class="col-header">Timeframe:</td>
+                                     <td class="col-data">4:15pm -  8:00pm</td>
+                                   </tr>
+                               </table>
+                               <% if (posts[i].user_id == loggedUserID) { %>
+                                 <div class="center">
+                                   <a class="btn orange" href="/gTutor/posts/edit/<%= posts[i]["posts.id"] %>">EDIT</a>
+                                   <a class="btn red" href="/gTutor/posts/delete/<%= posts[i]["posts.id"] %>">DELETE</a>
+                                 </div>
+
+                               <% } else { %>
+                                 <% if (posts[i].status === "PENDING") {
+                                      let myHelps = helps.filter((post) => {
+                                        if (post.post_id === posts[i]["posts.id"]) {
+                                          if (post.user_id == loggedUserID) {
+                                            return post;
+                                          }
+                                        }
+                                      });
+
+                                   if (myHelps[0]) { %>
+                                     <div class="center">
+                                       <a class="btn disabled" href="#">You have offered to help - Waiting on OP's reply.</a>
+                                     </div>
+                                   <% } else { %>
+                                     <div class="center">
+                                       <a class="btn" href="/gTutor/posts/help/<%=posts[i]["posts.id"]%>">Offer To Help</a>
+                                     </div>
+                                   <% } %>
+                                 <% } else { %>
+                                   <div class="center">
+                                     <a class="btn" href="/gTutor/posts/help/<%=posts[i]["posts.id"]%>">Offer To Help</a>
+                                   </div>
+                                 <% } %>
+                               <% } %>
+                          <% } %>
+                        </div>
+                         <% } %>
+                          <% if (!anyPosts) { %>
+
+                             <p>No posts yet :-(</p>
+
+                          <% } %>
+                      <% } else { %>
+                          <div id="tab2-content" class="row">
+                            <p>No posts yet :-(</p>
+                          </div>
+                      <% } %>
+
+                             <!-- </div> -->
+                  <!-- END CONTAINER -->
+                  </div>
+        <!-- END TAB 2 DATA -->
+        </div>
+
+
+
+
+        <!-- ********* START TAB 3 DATA - MY REQUESTS ********* -->
+        <div id="tab-myRequests" class="col s12 z-depth-2">
+
+            <div class="row">
+              <div id="tab-content-heading" class="center-align">
+                <h3>My Help Requests</h3>
+              </div>
+            </div>
+
+                <div id="tab3-container" class="container z-depth-2">
+
+                  <% if (personalPosts[0]) { %>
+                    <% for (let i = 0; i < personalPosts.length; i++) {
+                        let date = String(personalPosts[i].created_at);
+                        date = date.split(" ");
+                    %>
+                    <div id="tab3-content" class="row">
+                      <table id="request-offer-top" class="tab2-content">
+                        <tr>
+                          <td class="col-header">Name:</td>
+                          <!-- <td class="col-data">John Doe</td> -->
+                          <td class="col-data"><%= personalPosts[i].first_name %> <%= personalPosts[i].last_name %></td>
+                          <td class="col-empty"></td>
+                          <td class="col-header">Request ID:</td>
+                          <!-- <td class="col-data2">#004</td> -->
+                          <td class="col-data2">#<%= personalPosts[i]["posts.id"] %></td>
+                        </tr>
+                        <tr>
+                          <td class="col-header">gStatus:</td>
+                          <!-- <td class="col-data">Student (g66)</td> -->
+                          <td class="col-data"><%= personalPosts[i].type %> (<%= personalPosts[i].cohort %>)</td>
+                          <td class="col-empty"></td>
+                          <td class="col-header">Title:</td>
+                          <!-- <td class="col-data2">JavaScript -- Help with accumulator patterns</td> -->
+                          <td class="col-data2"><%= personalPosts[i].title %></td>
+                        </tr>
+                        <tr>
+                          <td class="col-header">Availability:</td>
+                          <td class="col-data">10/30/2017 10/31/2017</td>
+                          <td class="col-empty"></td>
+                          <td class="col-header">Description:</td>
+                          <!-- <td class="col-data2">Struggling with understanding and implementing accumulator patterns and iterating through arrays.</td> -->
+                          <td class="col-data2"><%= personalPosts[i].content %></td>
+                        </tr>
+                        <tr>
+                          <td class="col-header">Timeframe:</td>
+                          <td class="col-data">4:15pm - 8:00pm</td>
+                          <td class="col-empty"></td>
+                          <td class="col-header">Posted On:</td>
+                          <td class="col-data2"><%= date[0] %> <%= date[1] %> <%= date[2] %> <%= date[3] %></td>
+                        </tr>
+                      </table>
+                      <% if (personalPosts[i].status === "PENDING") { %>
+                        <!-- <p>STATUS: <%= personalPosts[i].status %></p> -->
+                        <% console.log('frontend:', messages) %>
+                        <% for (let j = 0; j < messages.length; j++) {
+                          if (messages[j].post_id === personalPosts[i]["posts.id"]) { %>
+                            <% if (messages[j].status != "REJECTED") { %>
+                              <p>FROM: <%= messages[j].first_name %> <%= messages[j].last_name %></p>
+                              <p>MESSAGE: <%= messages[j].message %> </p>
+                              <p>STATUS: <%= messages[j].status %> </p>
+                              <% console.log("messages[j]", messages[j]) %>
+                              <a class="btn" href="/gTutor/posts/<%=messages[j].helper_id%>/accept">ACCEPT</a>
+                              <a class="btn" href="/gTutor/posts/<%=messages[j].helper_id%>/reject">REJECT</a>
+                            <% } %>
+
+                          <% }
+                        }%>
+
+                      <% } else if (personalPosts[i].status === "CLOSED") {
+                        let helperName = helper.filter(message => message.user_id != userInfo.id)[0]%>
+                        <p>Confirmed. Helper Name: <%= helperName.first_name %> <%= helperName.last_name %></p>
+                        <p>Messages Exchanged: </p>
+                        <% for (let j = 0; j < helper.length; j++) { %>
+                          <p> <%= helper[j].first_name %>: <%= helper[j].message %></p>
+                        <% } %>
+
+                      <%}%>
+                      <!-- BABS -->
+                    </div>
+                    <% } %>
+                    <% } else { %>
+                      <div id="tab3-content" class="row">
+                      <p>No posts yet :-(</p>
+                      </div>
+                    <% } %>
+
+
+                <!-- END CONTAINER -->
+                </div>
+        </div>
+
+        <!-- START TAB 4 DATA -->
+        <div id="tab-confirmedRequests" class="col s12">
+          <div class="row">
+            <div id="tab-content-heading" class="center-align">
+              <h3>Confirmed Requests</h3>
+            </div>
+          </div>
+
+              <div id="tab3-container" class="container z-depth-2">
+                <% for (let i = 0; i < offeredHelp.length; i++) { %>
+                <div id="tab3-content" class="row">
+                  <table id="request-offer-top" class="tab2-content">
+                    <tr>
+                      <td class="col-header">Name:</td>
+                      <!-- <td class="col-data">John Doe</td> -->
+                      <td class="col-data"><%= offeredHelp[i].first_name%> <%= offeredHelp[i].last_name%></td>
+                      <td class="col-empty"></td>
+                      <td class="col-header">Request ID:</td>
+                      <td class="col-data2">#<%= offeredHelp[i]["posts.id"] %></td>
+                    </tr>
+                    <tr>
+                      <td class="col-header">gStatus:</td>
+                      <!-- <td class="col-data">Student (g66)</td> -->
+                      <td class="col-data"><%= offeredHelp[i].type%> (<%= offeredHelp[i].cohort%>)</td>
+                      <td class="col-empty"></td>
+                      <td class="col-header">Title:</td>
+                      <!-- <td class="col-data2">JavaScript -- Help with accumulator patterns</td> -->
+                      <td class="col-data2"><%= offeredHelp[i].title%></td>
+                    </tr>
+                    <tr>
+                      <td class="col-header">Availability:</td>
+                      <td class="col-data">10/30/2017 10/31/2017</td>
+                      <td class="col-empty"></td>
+                      <td class="col-header">Description:</td>
+                      <!-- <td class="col-data2">Struggling with understanding and implementing accumulator patterns and iterating through arrays.</td> -->
+                      <td class="col-data2"><%= offeredHelp[i].content%></td>
+                    </tr>
+                    <tr>
+                      <td class="col-header">Timeframe:</td>
+                      <td class="col-data">4:15pm - 8:00pm</td>
+                    </tr>
+                  </table>
+                  <% for (let j = 0; j < sentMessages.length; j++) {
+                    console.log("sentMessages", sentMessages[i])
+                    if (sentMessages[j].post_id == offeredHelp[i]["posts.id"]) { %>
+                      <p><%= sentMessages[j].first_name %>: <%= sentMessages[j].message %> </p>
+                      <p>STATUS: <%= sentMessages[j].status%></p>
+                    <% } %>
+                  <% } %>
+                </div>
+                <% } %>
+
+              <!-- END CONTAINER -->
+              </div>
+        </div>
+
+
+
+
+
+
+
+    <!-- END MAIN PAGE container -->
+    </div>
+  </div>
+
+<footer class="page-footer">
+ <div class="container">
+   <div class="row">
+     <div class="center-align">
+       <h5 class="white-text"> a <span style="color:#e9933e;">galvanize</span> student project</h5>
+     </div>
+   </div>
+ </div>
+
+ <div class="footer-copyright">
+   <div class="container center">
+   © 2017 gTutor | Barbara Doring, Hassan Khan, Scott Dickscheid | All Rights Reserved
+   <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
+   </div>
+ </div>
+</footer>
+
+  <!-- Compiled and minified jQuery -->
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="crossorigin="anonymous"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('select').material_select();
+  });
+    </script>
+  </body>
+
+</html>
