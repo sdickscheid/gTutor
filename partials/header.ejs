@@ -14,9 +14,14 @@
       <div class="nav-wrapper">
         <a id="nav-img" href="" class="brand-logo"></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="/gTutor/login">About</a></li>
-          <li><a href="collapsible.html">Dashboard</a></li>
-          <li><a href="badges.html">Logout</a></li>
+          <li><a href="/gTutor/about">About</a></li>
+          <li><a href="/gTutor/posts">Dashboard</a></li>
+          <% if (userInfo) { %>
+            <li><a href="/gTutor/logout">Logout</a></li>
+          <% } else { %>
+            <li><a href="/gTutor/login">Login</a></li>
+          <% } %>
+          <!-- <li><a href="badges.html">Logout</a></li> -->
         </ul>
       </div>
     </nav>
