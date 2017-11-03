@@ -80,7 +80,11 @@ module.exports = {
   },
 
   registrationPage: function(req, res) {
-    res.render('registration');
+    let user = "";
+    if (req.session.user) {
+      user = req.session.user;
+    }
+    res.render('registration', {userInfo: user});
   },
 
   register: function(req,res) {
@@ -100,11 +104,12 @@ module.exports = {
           .insert(user, '*')
           .then((addedUser) => {
             console.log(addedUser);
-            req.session.user = addedUser[0].id;
-            req.session.save((err) => {
-              //change res.redirect(`/gTutor/${addedUser[0].id}`);
-              res.redirect(`/gTutor/login`);
-            })
+            res.redirect(`/gTutor/login`);
+            // req.session.user = addedUser[0].id;
+            // req.session.save((err) => {
+            //   //change res.redirect(`/gTutor/${addedUser[0].id}`);
+            //   res.redirect(`/gTutor/login`);
+            // })
           })
       })
       .catch((err) => {
