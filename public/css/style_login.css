@@ -24,6 +24,10 @@ flex: 1 0 auto;
   padding-bottom: 6%;
 }
 
+.nav-style {
+  height: 125px;
+}
+
 #nav-img {
   background-image: url('../images/gTutor-logo.svg');
   background-repeat: no-repeat;
@@ -31,6 +35,7 @@ flex: 1 0 auto;
   height: 150px;
   width: 225px;
   margin-top: 15px;
+  margin-left: 44%;
 }
 
 #nav-heading{
@@ -52,8 +57,10 @@ flex: 1 0 auto;
 #campus{
   margin-top: 3%;
 }
-
-/* ^^^ keep ----------------*/
+#about {
+  font-size: 20px;
+  margin: 50px 100px;
+}
 
 /* START LOGIN FORM STYLING */
 .form {
@@ -68,19 +75,16 @@ flex: 1 0 auto;
   margin-bottom: 20px;
 }
 
-/*.table-container {
-  padding: 5px;
-}*/
-
 #request-offer-top {
   margin-left: 10px;
 }
+
 #request-offer-mid {
   margin-left: 10px;
 }
 
-#request-offer-bottom {
-}
+/*#request-offer-bottom {
+}*/
 
 .accept-rejection {
   display: flex;
@@ -122,6 +126,7 @@ flex: 1 0 auto;
 .table-title {
   font-size: 24px;
 }
+
 .col-header {
   vertical-align: text-top;
 }
@@ -195,6 +200,22 @@ flex: 1 0 auto;
   background-color: #2e4a56;
 }
 
+.tabs .tab a {
+  color: #62b3c2;
+}
+
+.tabs .tab a:hover {
+  color: #e9933e;
+}
+
+.tabs .tab a.active {
+  color: #ffffff;
+}
+
+.tabs .indicator {
+  background-color: #62b3c2;
+}
+
 #tab-allRequests{
   background-color: #606d77;
 }
@@ -256,5 +277,4 @@ flex: 1 0 auto;
 
 .message-container{
   border:1px solid #344A55;
-
 }
