@@ -7,7 +7,7 @@ module.exports = {
   },
 
   index: function(req, res) {
-    res.render('about');
+    res.render('index');
   },
 
   check: function(req, res) {
