@@ -296,17 +296,33 @@ flex: 1 0 auto;
 
 
 #confirmation-status {
-
+  color: #42f44e;
 }
 
 #confirmation-notification {
-
+  color: #ffffff;
 }
 
 #confirmation-comments-header {
-
+  color: #e9933e;
 }
 
 .conversation-label {
-  
+
+}
+
+#my-tutor {
+  color: #ffffff;
+}
+
+#tutor-comment {
+  color: #ffffff;
+}
+
+.tutor-offer-status-confirmed {
+  color: #42f44e;
+}
+
+.tutor-offer-status-rejected {
+  color: #e9933e;
 }

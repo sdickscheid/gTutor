@@ -269,7 +269,7 @@
                       <% } else if (personalPosts[i].status === "CLOSED") {
                         let helperName = helper.filter(message => message.user_id != userInfo.id)[0]%>
                         <div class="message-container col s12 container " style="background-color:#626d76; padding-bottom:2%;">
-                          <h4 id="confirmation-status" class="center">Confirmed!</h4>
+                          <h4 id="confirmation-status" class="center">Confirmed</h4>
 
                           <p id="confirmation-notification">You have confirmed your tutoring session with <%= helperName.first_name %> <%= helperName.last_name %>.</p>
 
@@ -277,8 +277,11 @@
 
                           <% for (let j = 0; j < helper.length; j++) { %>
 
-                          <p class="conversation-label">Tutor: <%= helper[j].first_name %> </p>
-                          <p class="conversation-label">Message: <%= helper[j].message %></p>
+                          <p class="conversation-label">Tutor: <span id="my-tutor"> <%= helper[j].first_name %></span>
+                          </p>
+                          <p class="conversation-label">Message:</p>
+                          <p><span id="my-tutor"> <%= helper[j].message %></span>
+                          </p>
 
                         <% } %>
                         </div>
@@ -340,7 +343,14 @@
                     if (sentMessages[j].post_id == offeredHelp[i]["posts.id"]) { %>
                       <div class="message-container col s12 container " style="background-color:#626d76; padding-bottom:2%;">
                       <p><%= sentMessages[j].first_name %>: <div class="white-text"><%= sentMessages[j].message %></div> </p>
-                      <p>STATUS:<div class="white-text"><%= sentMessages[j].status%></div></p>
+                      <% if (sentMessages[j].status === "ACCEPTED") { %>
+                        <p>STATUS:<div class="tutor-offer-status-confirmed"><%= sentMessages[j].status%></div></p>
+                      <% } else if (sentMessages[j].status === "REJECTED") { %>
+                        <p>STATUS:<div class="tutor-offer-status-rejected"><%= sentMessages[j].status%></div></p>
+                      <% } else { %>
+                        <p>STATUS:<div style="color: white;"><%= sentMessages[j].status%></div></p>
+                      <% } %>
+
                       </div>
                     <% } %>
                   <% } %>
