@@ -133,25 +133,28 @@
                                      <td class="col-header">gStatus:</td>
                                      <td class="col-data"><%= posts[i].type %> (<%= posts[i].cohort %>)</td>
                                      <td class="col-empty"></td>
-                                     <td class="col-header">Title:</td>
-                                     <td class="col-data2"><%= posts[i].title %></td>
+                                     <td class="col-header">Topic:</td>
+                                     <td class="col-data2"><%= posts[i].topic %></td>
                                    </tr>
                                    <tr>
                                      <td  class="col-header">Availability:</td>
                                      <td class="col-data">10/30/2017  10/31/2017</td>
                                      <td class="col-empty"></td>
-                                     <td class="col-header">Description:</td>
-                                     <td class="col-data2"><%= posts[i].content %></td>
+                                     <td class="col-header">Title:</td>
+                                     <td class="col-data2"><%= posts[i].title %></td>
                                    </tr>
                                    <tr>
                                      <td class="col-header">Timeframe:</td>
                                      <td class="col-data">4:15pm -  8:00pm</td>
+                                     <td class="col-empty"></td>
+                                     <td class="col-header">Description:</td>
+                                     <td class="col-data2"><%= posts[i].content %></td>
                                    </tr>
                                </table>
                                <% if (posts[i].user_id == loggedUserID) { %>
                                  <div class="center">
-                                   <a class="btn orange" href="/gTutor/posts/edit/<%= posts[i]["posts.id"] %>">EDIT</a>
-                                   <a class="btn red" href="/gTutor/posts/delete/<%= posts[i]["posts.id"] %>">DELETE</a>
+                                   <a id="edit-btn" class="btn" href="/gTutor/posts/edit/<%= posts[i]["posts.id"] %>">EDIT REQUEST</a>
+                                   <a id="delete-btn" class="btn" href="/gTutor/posts/delete/<%= posts[i]["posts.id"] %>">DELETE REQUEST</a>
                                  </div>
 
                                <% } else { %>
@@ -184,11 +187,11 @@
 
                          <% } %>
                           <% if (!anyPosts) { %>
-                             <p>No posts yet:-(</p>
+                             <p class="white-text">There are no requests in the queue at this time.</p>
                           <% } %>
                       <% } else { %>
                           <div id="tab2-content" class="row">
-                            <p>No posts yet :-(</p>
+                            <p class="white-text">There are no requests in the queue at this time.</p>
                           </div>
                       <% } %>
 
@@ -291,7 +294,7 @@
 
                     <% } else { %>
                       <div id="tab3-content" class="row">
-                      <p>There are no posts at this time.</p>
+                      <p class="white-text">You have no requests at this time.</p>
                       </div>
                     <% } %>
 
