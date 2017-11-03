@@ -20,11 +20,11 @@ flex: 1 0 auto;
 }
 
 #nav-img {
-  background-image: url('../images/galvanize-logo.png');
+  background-image: url('../images/gTutor-logo.svg');
   background-repeat: no-repeat;
   background-size: contain;
-  height: 125px;
-  width: 200px;
+  height: 150px;
+  width: 225px;
   margin-top: 15px;
 }
 
@@ -40,35 +40,19 @@ flex: 1 0 auto;
   margin-bottom: 3%;
 }
 
-#learn{
-  margin-bottom: 5%;
+#learn {
+  /*margin-bottom: 5%;*/
 }
 
-#box{
+#box {
   margin-left: 33%;
 }
 
-#boxHead{
+#boxHead {
   color:#e9933e;
 }
 
-#btnOne{
-  margin-left: 135%;
-  background-color: #424242;
-}
 
-#btnOne:hover {
-background-color: #4ab5cd;
-}
-
-#btnTwo{
-  margin-left: 200%;
-  background-color: #424242;
-}
-
-#btnOne:hover {
-background-color: #4ab5cd;
-}
 .page-footer{
   position: flex;
   right: 0;
@@ -76,4 +60,42 @@ background-color: #4ab5cd;
   left: 0;
   padding: 1rem;
   background-color:#2e4a56;
+}
+
+/* additional css to index page */
+
+/*.login-reg-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}*/
+
+#btn-login {
+  /*margin: auto;*/
+  background-color: #424242;
+  order: 1;
+  width: 250px;
+  height: 75px;
+  font-size: 24px;
+  padding-top: 0.5em;
+  margin-bottom: 5%;
+}
+
+#btn-login:hover {
+background-color: #4ab5cd;
+}
+
+#btn-register {
+  margin-left: 15%;
+  background-color: #424242;
+  order: 2;
+  width: 250px;
+  height: 75px;
+  font-size: 24px;
+  padding-top: 0.5em;
+  margin-bottom: 5%;
+}
+
+#btn-register:hover {
+background-color: #4ab5cd;
 }
