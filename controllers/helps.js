@@ -2,15 +2,17 @@ const knex = require("../db/knex.js");
 
 module.exports = {
   index: function(req, res) {
+    console.log('requestOffer - foundPost:', req.params.postID);
       knex('posts')
-        .select('posts.id', 'posts.topic', 'posts.content', 'posts.title', 'users.first_name', 'users.last_name')
+        .select('posts.id', 'posts.topic', 'posts.content', 'posts.title', 'users.first_name', 'users.last_name', 'users.type', 'users.cohort')
         .join('users', 'users.id', 'posts.user_id')
         .where('posts.id', req.params.postID)
         .then((foundPost) => {
             knex('users')
               .where('users.id', req.session.user)
               .then((loggedUser) => {
-                res.render('s4_requestOffer', {post: foundPost[0], user: loggedUser[0]});
+
+                res.render('requestOffer', {post: foundPost[0], user: loggedUser[0]});
               });
         })
         .catch((err) => {
