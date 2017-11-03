@@ -343,7 +343,7 @@ flex: 1 0 auto;
   width: 250px;
 }
 
-.page-footer {
+.page-footer-sticky {
   position: absolute;
   bottom: 0;
 }
